@@ -74,8 +74,8 @@
             	</ul>
                
                 <ul class="nav hidden-xs" id="lg-menu">
-                    <!-- New Post Form  -->
-                    <%= render partial: "posts/new" %>
+                    <!-- New Post Form Partial  -->
+                    <%= render "posts/new" %>
                     <li class="active"><a href="#featured"><i class="glyphicon glyphicon-list-alt"></i> Featured</a></li>
                     <li><a href="#stories"><i class="glyphicon glyphicon-list"></i> Stories</a></li>
                     <li><a href="#"><i class="glyphicon glyphicon-paperclip"></i> Saved</a></li>
@@ -114,8 +114,8 @@
                          <!-- main col left --> 
                          <div class="col-sm-12">
 
-                              <!-- Render Posts -->
-                              <%= render partial: "posts/index", locals: {posts: @posts} %>
+                              <!-- Render Posts Partial -->
+                              <%= render "posts/index" %>
                            
                               <div class="panel panel-default">
                                 <div class="panel-thumbnail"><img src="/assets/example/bg_5.jpg" class="img-responsive"></div>
