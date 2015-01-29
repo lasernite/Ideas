@@ -7,7 +7,7 @@
 	padding-top:5px;
 	padding-right: 5px; 
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-	font-size:14px;
+	font-size:16px;
 	line-height:20px;
 	margin-left: 5%;
 	font-family: 'Bree Serif', serif;
@@ -17,7 +17,7 @@
 	background-color: transparent; 
 	position: relative; 
 	direction: ltr; 
-	font-size:14px;
+	font-size:16px;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	resize:none !important;
 	-webkit-transition: height 0.2s;
@@ -39,7 +39,7 @@
 	background: -webkit-linear-gradient(#dce6f8, #bdcff1);
 	border-radius: 2px;
 	box-shadow: 0 0 0 1px #a3bcea;
-	font-size:14px;
+	font-size:16px;
 	white-space: pre-wrap;
 	line-height:20px;
 }
