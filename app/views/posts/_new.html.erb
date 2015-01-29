@@ -1,14 +1,14 @@
 
 <!-- New Post Partial -->
 
-<h1>New Post</h1>
+<h1 id='share_idea'>Share Idea</h1>
 
 <%= form_for :post, url: posts_path do |f| %>
-  <p id="post_box">
-    <%= f.text_area :text %>
+  <p id='post_box'>
+    <%= f.text_area :text, :placeholder => "Let your thoughts flow .  .   .    .     ." %>
   </p>
  
   <p>
-    <%= f.submit %>
+    <%= f.submit 'Share Idea', :class => 'post_button btn btn-default' %>
   </p>
 <% end %>
