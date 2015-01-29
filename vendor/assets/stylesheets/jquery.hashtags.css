@@ -3,7 +3,7 @@
 	color:transparent;
 	overflow: hidden; 
 	position: absolute;
-	padding-left:7px;
+	padding-left:8px;
 	padding-top:5px;
 	padding-right: 5px; 
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -30,6 +30,7 @@
 	min-height:48px !important;
 	line-height:20px;
 	width: 95%;
+	height: 100px;
 	margin-left: 5%;
 	font-family: 'Bree Serif', serif;
 }
