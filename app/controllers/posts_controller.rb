@@ -5,11 +5,18 @@ class PostsController < ApplicationController
   end
 
   def create
+    # Create new post based on posts/_new.html.erb form
   	@post = Post.new(post_params)
-  	@post.save
+
+    # get hashtags ex. [{:hashtag=>"order", :indices=>[11, 17]}, {:hashtag=>"oh", :indices=>[18, 21]}]
     post_tags = extract_hashtags_with_indices(@post.text)
-    @tag = Tag.new(tag_params)
-    @tag.save
+    # Format each Hash in post_tags and save {:hashtag=>"example", :index_start=>11, :index_end=>19}
+    post_tags.each do |hash_tag|
+      @tag = Tag.new({:hashtag => hash_tag[:hashtag], :index_start => hash_tag[:indices][0], 
+              :index_end => hash_tag[:indices][1]})
+      @tag.save
+    end
+    @post.save
   	redirect_to '/'
   end
 
@@ -24,11 +31,6 @@ class PostsController < ApplicationController
   private
     def post_params
   	  params.require(:post).permit(:text)
-    end
-
-    def tag_params
-      post_tags = extract_hashtags_with_indices(@post.text)
-      params.require(:post).permit(post_tags)
     end
 
 end
