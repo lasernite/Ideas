@@ -10,3 +10,8 @@ $('[data-toggle=offcanvas]').click(function() {
     $('#btnShow').toggle();
 });
 });
+
+$(document).ready(function() {/* Activate Hashtags in Textarea */
+    $('textarea').hashtags();
+ });
+

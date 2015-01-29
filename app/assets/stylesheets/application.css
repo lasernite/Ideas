@@ -12,6 +12,7 @@
  *
  *= require bootstrap.min
  *= require welcome.css
+ *= require jquery.hashtags
  *= require_self
  *= require_tree .
  */
