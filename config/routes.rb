@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   # Create posts resource
   resources :posts
 
+  # Create tags resource
+  resources :tags
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
