@@ -1,11 +1,11 @@
 
 <!-- New Post Partial -->
 
-<h1 id='share_idea'>Share Idea</h1>
+<!-- <h1 id='share_idea'>Share Idea</h1> -->
 
 <%= form_for :post, url: posts_path do |f| %>
-  <p id='post_box'>
-    <%= f.text_area :text, :placeholder => "Let your thoughts flow .  .   .    .     .    and #tag away!" %>
+  <p>
+    <%= f.text_area :text, :class => "post_box", :placeholder => "Let your thoughts flow .  .   .    .     .    and #tag away!" %>
   </p>
  
   <p>
