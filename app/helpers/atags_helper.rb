@@ -1,0 +1,2 @@
+module AtagsHelper
+end

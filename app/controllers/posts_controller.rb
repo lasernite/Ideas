@@ -18,9 +18,9 @@ class PostsController < ApplicationController
       @post_tag.save
 
       # Add tag in post to Tags if it's not already been added
-      @tag = {:tag => hash_tag[:hashtag].downcase}
-      unless Tag.all.exists?(@tag)
-        Tag.new(@tag).save
+      @atag = {:tag => hash_tag[:hashtag].downcase}
+      unless Atag.all.exists?(@atag)
+        Atag.new(@atag).save
       end
     end
 

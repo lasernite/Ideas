@@ -17,6 +17,9 @@ gem 'coffee-rails', '~> 4.0.0'
 #hashtags extraction from twitter
 gem 'twitter-text', '~> 1.11.0'
 
+# Tags
+gem 'acts-as-taggable-on', '~> 3.4.3'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

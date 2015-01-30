@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :ptags
 
   # Create tags resource
-  resources :tags
+  resources :atags
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
