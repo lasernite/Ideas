@@ -10,12 +10,20 @@ class PostsController < ApplicationController
 
     # get hashtags ex. [{:hashtag=>"order", :indices=>[11, 17]}, {:hashtag=>"oh", :indices=>[18, 21]}]
     post_tags = extract_hashtags_with_indices(@post.text)
+
     # Format each Hash in post_tags and save {:hashtag=>"example", :index_start=>11, :index_end=>19}
     post_tags.each do |hash_tag|
-      @tag = Tag.new({:hashtag => hash_tag[:hashtag], :index_start => hash_tag[:indices][0], 
+      @post_tag = Ptag.new({:hashtag => hash_tag[:hashtag].downcase, :index_start => hash_tag[:indices][0], 
               :index_end => hash_tag[:indices][1]})
-      @tag.save
+      @post_tag.save
+
+      # Add tag in post to Tags if it's not already been added
+      @tag = {:tag => hash_tag[:hashtag].downcase}
+      unless Tag.all.exists?(@tag)
+        Tag.new(@tag).save
+      end
     end
+
     @post.save
   	redirect_to '/'
   end

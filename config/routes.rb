@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   # Create posts resource
   resources :posts
 
+  # Create posts tags resource
+  resources :ptags
+
   # Create tags resource
   resources :tags
 

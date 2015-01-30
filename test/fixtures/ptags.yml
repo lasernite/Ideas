@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hashtag: MyString
+  index_start: 1
+  index_end: 1
+
+two:
+  hashtag: MyString
+  index_start: 1
+  index_end: 1
