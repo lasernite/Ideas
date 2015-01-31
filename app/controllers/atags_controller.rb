@@ -4,6 +4,6 @@ class AtagsController < ApplicationController
 
 
   def show
-  	@atag = Atag.find(params[:tag])
+  	@atag = Atag.find(params[:id])
   end
 end

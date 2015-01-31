@@ -8,20 +8,21 @@ class PostsController < ApplicationController
     # Create new post based on posts/_new.html.erb form
   	@post = Post.new(post_params)
     @post.save
-    # get hashtags ex. [{:hashtag=>"order", :indices=>[11, 17]}, {:hashtag=>"oh", :indices=>[18, 21]}]
+
+    # Get post hashtags: [{:hashtag=>"order", :indices=>[11, 17]}, {:hashtag=>"oh", :indices=>[18, 21]}]
     post_tags = extract_hashtags_with_indices(@post.text)
-
-    # Format each Hash in post_tags and save {:hashtag=>"example", :index_start=>11, :index_end=>19}
+    # For each tag Hash in post
     post_tags.each do |hash_tag|
-      @ptag = Ptag.new({:hashtag => hash_tag[:hashtag].downcase, :index_start => hash_tag[:indices][0], 
-              :index_end => hash_tag[:indices][1], :post_id => @post.id})
-      @ptag.save
-
-      # Add tag in post to Tags if it's not already been added
+      # Add tag to Atags (Unique Tags) if it's not already been added
       @atag = {:tag => hash_tag[:hashtag].downcase}
       unless Atag.all.exists?(@atag)
         Atag.new(@atag).save
       end
+      # Save Ptag - Post Tag
+      @ptag = Ptag.new({:hashtag => hash_tag[:hashtag].downcase, :index_start => hash_tag[:indices][0], 
+              :index_end => hash_tag[:indices][1], :post_id => @post.id, 
+              :atag_id => Atag.where(tag:hash_tag[:hashtag].downcase)[0].id })
+      @ptag.save
     end
     
   	redirect_to '/'

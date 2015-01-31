@@ -5,6 +5,7 @@ class CreatePtags < ActiveRecord::Migration
       t.integer :index_start
       t.integer :index_end
       t.integer :post_id
+      t.integer :atag_id
 
       t.timestamps
     end
