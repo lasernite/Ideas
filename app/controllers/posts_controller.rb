@@ -21,7 +21,7 @@ class PostsController < ApplicationController
       # Save Ptag - Post Tag
       @ptag = Ptag.new({:hashtag => hash_tag[:hashtag].downcase, :index_start => hash_tag[:indices][0], 
               :index_end => hash_tag[:indices][1], :post_id => @post.id, 
-              :atag_id => Atag.where(tag:hash_tag[:hashtag].downcase)[0].id })
+              :atag_id => Atag.find_by(tag:hash_tag[:hashtag].downcase).id })
       @ptag.save
     end
     

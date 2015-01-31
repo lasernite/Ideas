@@ -5,8 +5,9 @@
     <div class="panel-body">
       <%# For each of the ptags associated with that post %>
       <% @ptags.where(post_id:post.id).each do |ptag| %>
-        <%# Link to the unique atag %>
-        <%= link_to ptag.hashtag, atag_path(Atag.where(id:ptag.atag_id)[0].id) %>
+        <%# Link to the unique atag page %>
+        <%= link_to '#' + ptag.hashtag, atag_path(Atag.find_by(id:ptag.atag_id).id), 
+            :class => 'post_hashtag' %>
       <% end %>
 
       <%# Render each post text %>

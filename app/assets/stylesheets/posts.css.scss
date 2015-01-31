@@ -2,6 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// Posts Formatting
+
+.post_hashtag {
+	font-family: 'Bree Serif', serif;
+	font-size: 16px;
+	color: #000000;
+}
+
+.post_hashtag:hover {
+	color: #1F94AE;
+}
+
+
+
+// Post Box and Nav Formatting
+
 .post_box {
 	// color: #555555;
 	text-shadow: 0 1px 2px #000000;
