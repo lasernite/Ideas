@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20150130092226) do
     t.string   "hashtag"
     t.integer  "index_start"
     t.integer  "index_end"
+    t.integer  "post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

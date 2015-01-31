@@ -1,7 +1,17 @@
+
+<%# For each each post %>
 <% @posts.reverse.each do |post| %>
   <div class="panel panel-default">
     <div class="panel-body">
+      <%# For each of the ptags associated with that post %>
+      <% @ptags.where(post_id:post.id).each do |ptag| %>
+        <%# Link to the unique atag %>
+        <%= link_to ptag.hashtag, atag_path(Atag.where(tag:ptag.hashtag)) %>
+      <% end %>
+
+      <%# Render each post text %>
 	  <%= post.text %>
+	  
     </div>
   </div>
 <% end %>
