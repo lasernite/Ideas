@@ -21,12 +21,25 @@
 
       <%# Render each post %>
       <%# Just render text if there are no hashtags %>
-      <% if @tag_indices.length < 2 %>
+      <% if @tag_indices.length == 0 %>
       	<%= post.text %>
+      <%# If there is one, finaggle it %>
+      <% elsif @tag_indices.length == 1 %>
+       	<% if post.text[0] == '#' %>
+      	  <%= post.text[2..@tag_indices[0][0]] %>
+      	<% else %>
+      	  <%= post.text[0..@tag_indices[0][0]-2] %>
+      	<% end %>
+      	<%= @tag_links[0] %> 
+      	<%= post.text[@tag_indices[0][1]..-1] %>
       <%# If there are hashtags, splice them in %>
       <% else %>
-		  <% @tag_count = 0 %>
-		  <% @post_pieces = [post.text[0..@tag_indices[0][0]-1]] %>
+		<% @tag_count = 0 %>
+		<% if @tag_indices[0][0] == 0 %>
+		  <% @post_pieces = [] %>
+		<% else %>
+		  <% @post_pieces = [post.text[0..@tag_indices[0][0]-2]] %>
+		<% end %>
 		  <% @tag_indices.each do |indice| %>
 		  	<% @post_pieces.append(@tag_links[@tag_count]) %>
 		  	<% @post_pieces.append(post.text[indice[1]..@tag_indices[@tag_count+1][0]-2]) %>
@@ -37,11 +50,13 @@
 		  	<% end %>
 		  	<%# Move on to next %>
 		  <% end %>
-
+		  <% @post_pieces.pop %>
+		  <% @post_pieces.pop %>
 		  <% @post_pieces.each do |piece| %>
 		  	<%= piece %>
 		  <% end %>
 		  	<%= @tag_links[-1] %>
+		  	<%= post.text[@tag_indices[-1][1]..-1] %>
 	  <% end %>			
 	  
     </div>
