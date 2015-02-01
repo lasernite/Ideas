@@ -17,7 +17,7 @@ class WelcomeController < ApplicationController
          	@tag_indices.append([ptag.index_start, ptag.index_end]) 
         	# Store hashtag links for splicing post
          	@tag_links.append(view_context.link_to '#' + ptag.hashtag, atag_path(Atag.find_by(id:ptag.atag_id).id), 
-            :class => 'post_hashtag', :remote => true)
+            :class => 'post_hashtag', :remote => true, :onclick => "location.href='#top'")
     	end 
 
         # Create and store post as @post_pieces in @posts_spliced
