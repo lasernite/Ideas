@@ -14,4 +14,3 @@ $('[data-toggle=offcanvas]').click(function() {
 $(document).ready(function() {/* Activate Hashtags in Textarea */
     $('textarea').hashtags();
  });
-

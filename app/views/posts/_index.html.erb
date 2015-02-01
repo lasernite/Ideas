@@ -1,9 +1,10 @@
 
-<%# For each each post %>
-<% @posts_spliced.each do |post| %>
+<%# For each each spliced post made of pieces (text and hashtags) %>
+<% @posts_spliced.each do |post_pieces| %>
   <div class="panel panel-default">
-    <div class="panel-body">		
-	 <% post.each do |piece| %>
+    <div class="panel-body">
+     <%# Build post from pieces (text and hashtags) %>		
+	 <% post_pieces.each do |piece| %>
 	 	<%= piece %>
 	 <% end %> 
     </div>

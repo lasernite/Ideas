@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   include Twitter::Extractor
-
+  respond_to :html, :js
   def new
   end
 
@@ -18,7 +18,7 @@ class PostsController < ApplicationController
       unless Atag.all.exists?(@atag)
         Atag.new(@atag).save
       end
-      # Save Ptag - Post Tag
+      # Save Ptag (Post Tag)
       @ptag = Ptag.new({:hashtag => hash_tag[:hashtag].downcase, :index_start => hash_tag[:indices][0], 
               :index_end => hash_tag[:indices][1], :post_id => @post.id, 
               :atag_id => Atag.find_by(tag:hash_tag[:hashtag].downcase).id })
