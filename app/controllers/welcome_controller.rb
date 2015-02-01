@@ -67,7 +67,7 @@ class WelcomeController < ApplicationController
 		   	@post_pieces.append(@tag_links[-1])
 		  	@post_pieces.append(post.text[@tag_indices[-1][1]..-1])
 		  	@posts_spliced.append(@post_pieces)
-	   end 				  
- 	end
+	    end 				  
+ 	  end
   end
 end
