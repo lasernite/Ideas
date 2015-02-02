@@ -75,6 +75,16 @@
                 <ul class="nav hidden-xs" id="lg-menu">
                     <!-- New Post Form Partial  -->
                     <%= render "posts/new" %>
+
+                    <!-- Trending Tags -->
+                    <h3 class="trending"> Trending Now </h3>
+                    <% @recent_tags.each do |tag| %>
+                        <%= link_to '#' + tag[0], atag_path(Atag.find_by(tag:tag[0]).id), 
+                            :class => 'trending_tags', :remote => true, 
+                            :onclick => "location.href='#top'" %>
+                    <% end %>
+
+                    <!-- Navigation Menu -->
                     <li class="active"><a href="#featured"><i class="glyphicon glyphicon-list-alt"></i> Featured</a></li>
                     <li><a href="#stories"><i class="glyphicon glyphicon-list"></i> Stories</a></li>
                     <li><a href="#"><i class="glyphicon glyphicon-paperclip"></i> Saved</a></li>

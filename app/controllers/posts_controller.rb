@@ -13,7 +13,7 @@ class PostsController < ApplicationController
     post_tags = extract_hashtags_with_indices(@post.text)
     # For each tag Hash in post
     post_tags.each do |hash_tag|
-      # Add tag to Atags (Unique Tags) if it's not already been added
+      # Save tag as Atag (Unique Tags) if it's not already been added
       @atag = {:tag => hash_tag[:hashtag].downcase}
       unless Atag.all.exists?(@atag)
         Atag.new(@atag).save
@@ -33,7 +33,6 @@ class PostsController < ApplicationController
   end
 
   def index
-  	@posts = Post.all
   end
 
   private
