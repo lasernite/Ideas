@@ -2,7 +2,7 @@
 <%# For each each spliced post made of pieces (text and hashtags) %>
 <% @posts_spliced.each do |post_pieces| %>
   <div class="panel panel-default">
-    <div class="panel-body">
+    <div class="panel-body" style="word-wrap: break-word;">
      <%# Build post from pieces (text and hashtags) %>		
 	 <% post_pieces.each do |piece| %>
 	 	<%= piece %>

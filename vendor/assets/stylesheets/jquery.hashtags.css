@@ -11,6 +11,7 @@
 	line-height:20px;
 	margin-left: 5%;
 	font-family: 'Bree Serif', serif;
+	word-wrap: break-word;
 }
 
 .jqueryHashtags .theSelector{
