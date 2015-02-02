@@ -7,7 +7,9 @@ class PostsController < ApplicationController
   def create
     # Create new post based on posts/_new.html.erb form
   	@post = Post.new(post_params)
-    @post.save
+    unless @post.text.length <= 3
+      @post.save
+    end
 
     # Get post hashtags: [{:hashtag=>"order", :indices=>[11, 17]}, {:hashtag=>"oh", :indices=>[18, 21]}]
     post_tags = extract_hashtags_with_indices(@post.text)
