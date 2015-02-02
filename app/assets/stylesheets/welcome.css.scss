@@ -177,6 +177,7 @@ hr {
 
 .trending_tags:hover {
   color: #000000;
+  text-shadow: 1px 1px 2px #065655;
 }
 
 .community_statement {
@@ -197,6 +198,7 @@ hr {
   color: #ffffff;
   background-color: transparent;
   padding-left: 5px;
+  text-shadow: 1px 1px 2px #065655;
 }
 
 #sidebar-footer a:hover {
@@ -267,8 +269,7 @@ h1, h2, h3 {
 }
 
 .btn-default {
-  color: #666666;
-  text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+  color: #000000;
 }
 
 .form-control! {}
