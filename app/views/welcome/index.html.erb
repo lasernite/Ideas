@@ -78,19 +78,16 @@
 
                     <!-- Trending Tags -->
                     <h3 class="trending"> Trending Now </h3>
+                    <center>
                     <% @recent_tags.each do |tag| %>
                         <%= link_to '#' + tag[0], atag_path(Atag.find_by(tag:tag[0]).id), 
                             :class => 'trending_tags', :remote => true, 
                             :onclick => "location.href='#top'" %>
                     <% end %>
+                    </center>
 
-                    <!-- Navigation Menu -->
-                    <li class="active"><a href="#featured"><i class="glyphicon glyphicon-list-alt"></i> Featured</a></li>
-                    <li><a href="#stories"><i class="glyphicon glyphicon-list"></i> Stories</a></li>
-                    <li><a href="#"><i class="glyphicon glyphicon-paperclip"></i> Saved</a></li>
-                    <li><a href="#"><i class="glyphicon glyphicon-refresh"></i> Refresh</a></li>
                     <!-- Who We Are -->
-                    <h4 class="community_statement"> A community for creators, thinkers, visionaries, innovators, technologists, artists, engineers, designers, scientists, humanitarians, explorers, tinkerers, entrepreneurs, musicians, writers, leaders, developers, sponsors, discoverers, organizers, lovers of life, and all those who aspire to be.</h4>
+                    <h5 class="community_statement"> A community for creators, thinkers, visionaries, innovators, technologists, artists, engineers, designers, scientists, humanitarians, explorers, tinkerers, entrepreneurs, musicians, writers, leaders, developers, sponsors, discoverers, organizers, lovers of life, and all those who aspire to be.</h4>
                 </ul>
                 <ul class="list-unstyled hidden-xs" id="sidebar-footer">
                     <li>
