@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   # Create posts resource
-  resources :posts
+  resources :posts do
+    # Create comments resource nested in posts
+    resources :comments
+  end
 
   # Create posts tags resource
   resources :ptags

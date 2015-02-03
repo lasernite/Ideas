@@ -4,6 +4,7 @@ class WelcomeController < ApplicationController
   	@posts = Post.all
   	@ptags = Ptag.all
   	@atags = Atag.all
+    # @comments = Comment.where(post_id:post_pieces[-1])
 
   	@posts_spliced = []
   	# Build all posts as items in @posts_spliced, with each item an @post_pieces array
@@ -66,6 +67,8 @@ class WelcomeController < ApplicationController
 		   	# Finish compiling @post_pieces and store it in @posts_spliced
 		   	@post_pieces.append(@tag_links[-1])
 		  	@post_pieces.append(post.text[@tag_indices[-1][1]..-1])
+        # Make last item in array post id for comment association purposes
+        @post_pieces.append(post.id)
 		  	@posts_spliced.append(@post_pieces)
 	    end 				  
  	  end

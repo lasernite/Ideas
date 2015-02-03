@@ -1,12 +1,22 @@
 
-<%# For each each spliced post made of pieces (text and hashtags) %>
+<%# For each spliced post made of pieces (text and hashtags) %>
 <% @posts_spliced.each do |post_pieces| %>
   <div class="panel panel-default">
     <div class="panel-body" style="word-wrap: break-word;">
      <%# Build post from pieces (text and hashtags) %>		
 	 <% post_pieces.each do |piece| %>
 	 	<%= piece %>
-	 <% end %> 
+	 <% end %>
+	 <%# Render Comment Form %> 
+	 <%= form_for :comment, url: post_comments_path(post_id:post_pieces[-1]) do |f| %>
+  		<p>
+    	<%= f.text_area :text, :class => "comment_box", :placeholder => "Craft a gorgeous response you beautiful human being... Or just let you mind GOOOO000!!!!" %>
+  		</p>
+ 
+  		<p>
+    	<%= f.submit 'B00M Baby', :class => 'post_button btn btn-default' %>
+  		</p>
+	 <% end %>
     </div>
   </div>
 <% end %>

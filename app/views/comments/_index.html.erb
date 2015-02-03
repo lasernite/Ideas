@@ -1,0 +1,9 @@
+<%# For each comment in post %>
+<% @comments.each do |comment| %>
+  <div class="panel panel-default">
+    <div class="panel-body" style="word-wrap: break-word;">
+    	<%# Show comment %>
+		<%= comment %>
+    </div>
+  </div>
+<% end %>

@@ -1,7 +1,5 @@
-class Post < ActiveRecord::Base
-	belongs_to :tag
-	has_many :ptags
-	has_many :comments
+class Comment < ActiveRecord::Base
+	belongs_to :post
 
 	validates_length_of :text,
   		:within => 4..11664,
