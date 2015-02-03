@@ -3,7 +3,7 @@
 
 <!-- <h1 id='share_idea'>Share Idea</h1> -->
 
-<%= form_for :post, url: posts_path do |f| %>
+<%= form_for :post, url: posts_path, validate: true do |f| %>
   <p>
     <%= f.text_area :text, :class => "post_box", :placeholder => "Let your thoughts flow .  .   .    .     .    and #tag away!" %>
   </p>
