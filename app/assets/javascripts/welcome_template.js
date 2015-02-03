@@ -11,6 +11,6 @@ $('[data-toggle=offcanvas]').click(function() {
 });
 });
 
-$(document).ready(function() {/* Activate Hashtags in Textarea */
-    $('textarea').hashtags();
+$(document).ready(function() {/* Activate Hashtags in .post_box */
+    $('.post_box').hashtags();
  });

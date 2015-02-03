@@ -2,10 +2,34 @@
 <% @aposts_spliced.each do |apost_pieces| %>
   <div class="panel panel-default">
     <div class="panel-body" style="word-wrap: break-word;">
+
      <%# Build post from pieces (text and hashtags) %>		
-	 <% apost_pieces.each do |piece| %>
+	 <% apost_pieces[0..-2].each do |piece| %>
 	 	<%= piece %>
 	 <% end %> 
+
+	 <%# Render a comment form for this post %> 
+	 <%= form_for :comment, url: post_comments_path(post_id:apost_pieces[-1]) do |f| %>
+  		<p>
+  		<%= f.hidden_field :post_id, :value => apost_pieces[-1] %>
+    	<%= f.text_area :text, :class => "comment_box", :placeholder => "Craft a gorgeous response you beautiful human being... Or just let you mind GOOOO000!!!!" %>
+  		</p>
+ 
+  		<p>
+    	<%= f.submit 'B00M Baby', :class => 'comment_button btn btn-default' %>
+  		</p>
+	 <% end %>
+
+	 <%# Render each comment for this post %>
+	 <% @comments.where(post_id:apost_pieces[-1]).each do |comment| %>
+	   <div class="panel panel-default">
+	     <div class="panel-body" style="word-wrap: break-word;">
+	     	<%# Show comment %>
+			<%= comment.text %>
+	     </div>
+	   </div>
+	 <% end %>
+
     </div>
   </div>
 <% end %>
