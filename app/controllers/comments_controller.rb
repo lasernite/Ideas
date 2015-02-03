@@ -5,8 +5,6 @@ class CommentsController < ApplicationController
   def create
   	# Create new comment based on comments/_new.html.erb form
   	@comment = Comment.new(comment_params)
-  	# Relate comment to post
-  	# @comment.post_id = 
     @comment.save
   	redirect_to '/'
   end

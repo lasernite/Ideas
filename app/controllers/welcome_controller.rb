@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
   	@posts = Post.all
   	@ptags = Ptag.all
   	@atags = Atag.all
-    # @comments = Comment.where(post_id:post_pieces[-1])
+    @comments = Comment.all
 
   	@posts_spliced = []
   	# Build all posts as items in @posts_spliced, with each item an @post_pieces array
