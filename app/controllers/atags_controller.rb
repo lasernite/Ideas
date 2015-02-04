@@ -21,6 +21,6 @@ class AtagsController < ApplicationController
   	@ptags = Ptag.all
   	@atags = Atag.all
   	@aposts_spliced = []
-  	splice_posts(@aposts, @ptags, @aposts_spliced)
+  	splice_posts(@aposts, @aposts_spliced)
   end
 end

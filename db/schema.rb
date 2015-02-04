@@ -34,9 +34,7 @@ ActiveRecord::Schema.define(version: 20150203041851) do
   end
 
   create_table "ptags", force: true do |t|
-    t.string   "hashtag"
-    t.integer  "index_start"
-    t.integer  "index_end"
+    t.string   "tag"
     t.integer  "post_id"
     t.integer  "atag_id"
     t.datetime "created_at"

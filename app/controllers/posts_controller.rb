@@ -8,19 +8,25 @@ class PostsController < ApplicationController
     # Create new post based on posts/_new.html.erb form
   	@post = Post.new(post_params)
     if @post.save
-      # Get post hashtags: [{:hashtag=>"order", :indices=>[11, 17]}, {:hashtag=>"oh", :indices=>[18, 21]}]
-      post_tags = extract_hashtags_with_indices(@post.text)
-      # For each tag Hash in post
-      post_tags.each do |hash_tag|
+      post_spliced = @post.text.split
+      post_tags = []
+      post_spliced.each do |piece|
+        if piece.starts_with?('#')
+          post_tags.append(piece[1..-1])
+        else
+        end
+      end
+
+      # For each tag in post
+      post_tags.each do |tag|
         # Save tag as Atag (Unique Tags) if it's not already been added
-        @atag = {:tag => hash_tag[:hashtag].downcase}
-        unless Atag.all.exists?(@atag)
-          Atag.new(@atag).save
+        atag = {:tag => tag.downcase}
+        unless Atag.all.exists?(atag)
+          Atag.new(atag).save
         end
         # Save Ptag (Post Tag)
-        @ptag = Ptag.new({:hashtag => hash_tag[:hashtag].downcase, :index_start => hash_tag[:indices][0], 
-                :index_end => hash_tag[:indices][1], :post_id => @post.id, 
-                :atag_id => Atag.find_by(tag:hash_tag[:hashtag].downcase).id })
+        @ptag = Ptag.new({:tag => tag.downcase, :post_id => @post.id, 
+                :atag_id => Atag.find_by(tag:tag.downcase).id })
         @ptag.save
       end
     else
@@ -38,6 +44,10 @@ class PostsController < ApplicationController
   private
     def post_params
   	  params.require(:post).permit(:text)
+    end
+
+    def atag_params
+      params.require(:tag)
     end
 
 end

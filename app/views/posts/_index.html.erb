@@ -1,6 +1,6 @@
 
 <%# For each spliced post made of pieces (text and hashtags) %>
-<% @posts_spliced.each do |post_pieces| %>
+<% @posts_spliced.reverse.each do |post_pieces| %>
   <div class="panel panel-default">
     <div class="panel-body" style="word-wrap: break-word;">
 
@@ -9,7 +9,7 @@
 	 	<%= piece %>
 	 <% end %>
 
-	 <%# Render a comment form for this post %> 
+	 <%# Render a comment form for this post %>
 	 <%= form_for :comment, url: post_comments_path(post_id:post_pieces[-1]) do |f| %>
   		<p>
   		<%= f.hidden_field :post_id, :value => post_pieces[-1] %>
