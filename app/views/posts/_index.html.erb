@@ -18,9 +18,11 @@
 		</div>
 	 <% end %>
 
+	 <%# Comments Ajax Link %>
 	 <%= link_to @comments.where(post_id:post_pieces[-1]).length.to_s + ' Comments', '/posts/' + 
 	 	post_pieces[-1].to_s, remote: true %>
- 	 <!-- Render Post Comments Asynchronously to Post's Stream on Click -->
+
+ 	 <%# Render Post Comments Asynchronously to Post's Stream on Click %>
  	 <div id="<%= 'post' + post_pieces[-1].to_s %>"></div>
 
     </div>

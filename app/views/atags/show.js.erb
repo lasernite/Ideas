@@ -1,2 +1,4 @@
 /* Pass show to html */
 $("#tag_posts").html("<%= escape_javascript(render @atag) %>");
+
+$(<%= 'post' + request.path.scan(/\d/).join('') %>).html("<%= escape_javascript(render @comments[0]) %>");
