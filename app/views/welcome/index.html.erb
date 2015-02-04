@@ -29,12 +29,8 @@
                         <a href="#top"><img src='think_space_logo.png' class="tslogo"></a>
                       </div>
                     </div>
-                    <ul class="nav navbar-nav home_button">
-                      <li>
-                        <a href="#top"><i class="glyphicon glyphicon-home"></i> Home</a>
-                      </li>
-                    </ul>
                     <nav class="collapse navbar-collapse" role="navigation">
+
                     <form class="navbar-left search_box_form">
                         <div class="input-group input-group-sm" class="search_box_div">
                           <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term" class="search_box">
@@ -43,6 +39,7 @@
                           </div>
                         </div>
                     </form>
+
                     <ul class="nav navbar-nav navbar-right notify">
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation fa-lg"></i></a>
@@ -53,6 +50,11 @@
                           <li><a href="">More</a></li>
                           <li><a href="">More</a></li>
                         </ul>
+                      </li>
+                    </ul>
+                    <ul class="nav navbar-nav home_button navbar-right">
+                      <li>
+                        <a href="#top"><i class="glyphicon glyphicon-home"></i> Home</a>
                       </li>
                     </ul>
                     </nav>
@@ -119,10 +121,15 @@
 
                           <a id="top" style="position: relative; top: -150px;">&nbsp;</a> 
 
-                              <!-- Render Tag Posts Asynchronously to Populate Stream -->
+                          <% if request.url.split('?').length == 2 %>
+                            <%= render 'posts/search' %>
+                          <% else %>
+                          <% end %>
+
+                              <%# Render Tag Posts Asynchronously to Populate Stream %>
                               <div id="tag_posts"></div>
 
-                              <!-- Render Posts Partial to Populate Stream -->
+                              <%# Render Posts Partial to Populate Stream %>
                               <%= render "posts/index" %>
                            
                               <div class="panel panel-default">

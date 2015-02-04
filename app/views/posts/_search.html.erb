@@ -1,0 +1,34 @@
+
+<%# For each spliced post made of pieces (text and hashtags) %>
+<% @posts_spliced_searched.reverse.each do |post_pieces| %>
+  <div class="panel panel-default">
+    <div class="panel-body" style="word-wrap: break-word;">
+
+     <%# Build post from pieces (text and hashtags), excluding last element which is post_id %>		
+	 <% post_pieces[0..-2].each do |piece| %>
+	 	<%= piece %>
+	 <% end %>
+
+	 <% if @comments.where(post_id:post_pieces[-1]).length < 3 %>
+		 <%= form_for :comment, url: post_comments_path(post_id:post_pieces[-1]) do |f| %>
+				<%= f.hidden_field :post_id, :value => post_pieces[-1] %>
+			<%= f.text_area :text, :class => "comment_box", :placeholder => "Free your mind..." %>
+				<div class='comment_button_padding'>
+			<%= f.submit 'Let it go!', :class => 'comment_button btn btn-default'%>
+			</div>
+		 <% end %>
+		</div>
+	 <% else %>
+	 	 <%# Render Post Comments and Comment Box Asynchronously to Post's Stream on Click %>
+	 	 <div id="<%= 'post' + post_pieces[-1].to_s %>"></div>
+    </div>
+
+	 <%# Comments Ajax Link %>
+	 <div class='comments_load_box panel-footer'>
+	 <%= link_to @comments.where(post_id:post_pieces[-1]).length.to_s + ' Responses', '/posts/' + 
+	 	post_pieces[-1].to_s, remote: true, :class => 'comments_load' %>
+	 </div>
+
+	 <% end %>
+  </div>
+<% end %>

@@ -28,5 +28,28 @@ class WelcomeController < ApplicationController
     # Get only top 50
     @recent_tags = @recent_tags[0..49]
 
+    if request.url.split('?').length == 2
+      search_request = request.url.split('?')[1].split('+') 
+      search_strings = [search_request[0].split('=')[1]] + search_request[1..-1] 
+      search_strings.map! do |term| 
+       if term.starts_with?('%23') 
+         term = term[3..-1] 
+       else 
+         term 
+       end 
+      end 
+
+      @searched_posts = []
+      search_strings.each do |tag| 
+       Ptag.where(tag:tag).each do |ptag| 
+         Post.where(id:ptag.post_id).each do |post|
+            @searched_posts.append(post) 
+         end 
+       end 
+      end 
+      @posts_spliced_searched = []
+      splice_posts(@searched_posts, @posts_spliced_searched)
+    else
+    end
   end
 end
