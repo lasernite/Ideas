@@ -85,6 +85,8 @@ hr {
   margin-top: 32px;
 }
 
+/* Top Navigation Bar */
+
 .navbar-blue {
   border-width: 0;
   // background-color: #3B5999;
@@ -134,6 +136,14 @@ hr {
 
 .navbar-user {
   margin-right: 0px;
+}
+
+.tslogo {
+  border-radius: 5px;
+  width: 30px; 
+  height: 30px;
+  margin-top:8px;
+  margin-left:10px;
 }
 
 #main {
@@ -279,27 +289,31 @@ hr {
    font-size: 14px;
    line-height: 17px;
    text-align: center;
+   padding-top: 10px;
 }
 
 .comment_box:-moz-placeholder { /* Firefox 18- */
    color: #555555;
    font-size: 14px;
    line-height: 17px;
-   text-align: center;  
+   text-align: center;
+   padding-top: 10px;  
 }
 
 .comment_box::-moz-placeholder {  /* Firefox 19+ */
    color: #555555;
    font-size: 14px;
    line-height: 17px;
-   text-align: center;  
+   text-align: center;
+   padding-top: 10px;  
 }
 
 .comment_box:-ms-input-placeholder {  
    color: #555555;
    font-size: 14px;
    line-height: 17px;
-   text-align: center;  
+   text-align: center;
+   padding-top: 10px;  
 }
 
 /* bootstrap overrides */
