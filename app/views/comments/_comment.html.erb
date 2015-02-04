@@ -1,8 +1,6 @@
 <%# Ajax for comments on posts %>
-<h1> cat </h1>
-
  <%# Render each comment for this post %>
- <% @comments.where(post_id:request.path.scan(/\d/).join('')).each do |comment| %>
+ <% @comments.each do |comment| %>
    <div class="panel panel-default comments">
      <div class="panel-body" style="word-wrap: break-word;">
      	<%# Show comment %>
