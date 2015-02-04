@@ -155,7 +155,7 @@ hr {
 }
 
 .search_box_form {
-  width: 85%;
+  width: 90%;
   margin-top: 8px;
   margin-left: -101px;
   padding-left: 25%;
@@ -296,6 +296,15 @@ hr {
 
 .comment_button_padding {
   margin-top: 14px;
+}
+
+.comments_load_box {
+  width: 100%;
+  background-color: #F5F5F5;
+}
+
+.comments_load {
+  font-family: 'Bree Serif', serif;
 }
 
 .comments {

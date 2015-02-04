@@ -9,23 +9,27 @@
 	 	<%= piece %>
 	 <% end %>
 
-	 <%# Render a comment form for this post %>
-	 <%= form_for :comment, url: post_comments_path(post_id:post_pieces[-1]) do |f| %>
-			<%= f.hidden_field :post_id, :value => post_pieces[-1] %>
-		<%= f.text_area :text, :class => "comment_box", :placeholder => "Free your mind..." %>
-			<div class='comment_button_padding'>
-		<%= f.submit 'Let it go!', :class => 'comment_button btn btn-default'%>
+	 <% if @comments.where(post_id:post_pieces[-1]).length < 3 %>
+		 <%= form_for :comment, url: post_comments_path(post_id:post_pieces[-1]) do |f| %>
+				<%= f.hidden_field :post_id, :value => post_pieces[-1] %>
+			<%= f.text_area :text, :class => "comment_box", :placeholder => "Free your mind..." %>
+				<div class='comment_button_padding'>
+			<%= f.submit 'Let it go!', :class => 'comment_button btn btn-default'%>
+			</div>
+		 <% end %>
 		</div>
-	 <% end %>
+	 <% else %>
+	 	 <%# Render Post Comments and Comment Box Asynchronously to Post's Stream on Click %>
+	 	 <div id="<%= 'post' + post_pieces[-1].to_s %>"></div>
+    </div>
 
 	 <%# Comments Ajax Link %>
-	 <%= link_to @comments.where(post_id:post_pieces[-1]).length.to_s + ' Comments', '/posts/' + 
-	 	post_pieces[-1].to_s, remote: true %>
+	 <div class='comments_load_box panel-footer'>
+	 <%= link_to @comments.where(post_id:post_pieces[-1]).length.to_s + ' Responses', '/posts/' + 
+	 	post_pieces[-1].to_s, remote: true, :class => 'comments_load' %>
+	 </div>
 
- 	 <%# Render Post Comments Asynchronously to Post's Stream on Click %>
- 	 <div id="<%= 'post' + post_pieces[-1].to_s %>"></div>
-
-    </div>
+	 <% end %>
   </div>
 <% end %>
 
