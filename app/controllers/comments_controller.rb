@@ -9,6 +9,9 @@ class CommentsController < ApplicationController
   	redirect_to '/'
   end
 
+  def show
+  end
+
 
   private
     def comment_params

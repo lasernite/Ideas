@@ -16,13 +16,13 @@
   		</p>
  
   		<p>
-    	<%= f.submit 'B00M Baby', :class => 'comment_button btn btn-default' %>
+    	<%= f.submit 'Yeah Baby!', :class => 'comment_button btn btn-default' %>
   		</p>
 	 <% end %>
 
 	 <%# Render each comment for this post %>
 	 <% @comments.where(post_id:apost_pieces[-1]).each do |comment| %>
-	   <div class="panel panel-default">
+	   <div class="panel panel-default comments">
 	     <div class="panel-body" style="word-wrap: break-word;">
 	     	<%# Show comment %>
 			<%= comment.text %>
