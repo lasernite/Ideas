@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  include Twitter::Extractor
   respond_to :html, :js
   def new
   end

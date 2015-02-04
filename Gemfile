@@ -14,9 +14,6 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
-#hashtags extraction from twitter
-gem 'twitter-text', '~> 1.11.0'
-
 # Tags
 gem 'acts-as-taggable-on', '~> 3.4.3'
 
