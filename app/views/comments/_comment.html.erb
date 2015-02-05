@@ -1,14 +1,6 @@
 <%# Ajax for comments on posts %>
 
- <%# Render a comment form for this post %>
- <%= form_for :comment, remote:true, url: post_comments_path(post_id:request.path.scan(/\d/).join('')) do |f| %>
-		<%= f.hidden_field :post_id, :value => request.path.scan(/\d/).join('') %>
-	<%= f.text_area :text, :class => "comment_box", :placeholder => "Free your mind..." %>
-		<div class='comment_button_padding'>
-	<%= f.submit 'Let it go!', :class => 'comment_button btn btn-default'%>
-	</div>
- <% end %>
-
+<div class='comments_top'>
  <%# Render each comment for this post %>
  <% @comments.each do |comment| %>
    <div class="panel panel-default comments">
@@ -17,4 +9,15 @@
 		<%= comment.text %>
      </div>
    </div>
+ <% end %>
+</div>
+
+
+ <%# Render a comment form for this post %>
+ <%= form_for :comment, remote:true, url: post_comments_path(post_id:request.path.scan(/\d/).join('')) do |f| %>
+		<%= f.hidden_field :post_id, :value => request.path.scan(/\d/).join('') %>
+	<%= f.text_area :text, :class => "comment_box", :placeholder => "Free your mind..." %>
+		<div class='comment_button_padding'>
+	<%= f.submit 'Let it go!', :class => 'comment_button btn btn-default'%>
+	</div>
  <% end %>
