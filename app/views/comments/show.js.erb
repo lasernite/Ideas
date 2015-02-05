@@ -1,0 +1,6 @@
+$(<%= 'post' + request.path.scan(/\d/).join('') %>).html("<%= escape_javascript(render @comments[0]) %>");
+
+$(document).ready(function() {/* Make comment boxes grow with more text */
+    $('.comment_box').autosize({append: "\n"});
+    $('.comment_box').val('');
+ });
