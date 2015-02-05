@@ -7,7 +7,9 @@ class CommentsController < ApplicationController
   	# Create new comment based on comments/_new.html.erb form
   	@comment = Comment.new(comment_params)
     @comment.save
-  	redirect_to '/'
+    # @posts_path = '/posts/' + @comment.post_id.to_s
+    @comments = Comment.where(post_id:@comment.post_id)
+  	render 'posts/show'
   end
 
   def show

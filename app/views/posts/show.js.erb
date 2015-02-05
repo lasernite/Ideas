@@ -1,2 +1,1 @@
-
 $(<%= 'post' + request.path.scan(/\d/).join('') %>).html("<%= escape_javascript(render @comments[0]) %>");
