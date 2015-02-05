@@ -36,6 +36,7 @@ class PostsController < ApplicationController
   def show
   	@post = Post.find(params[:id])
     @comments = Comment.where(post_id:@post.id)
+    @new_comment = Comment.new
     @posts = Post.all
     @posts_spliced = []
     splice_posts(@posts, @posts_spliced)

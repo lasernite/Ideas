@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   def splice_posts(posts, spliced)
   	# Split each post and map each piece of post to hashtag or URL if applicable
   	posts.each do |post|
-  		post_spliced = post.text.split
+  		post_spliced = post.text.downcase.split
   		post_spliced.map! do |piece|
   			# Map in tag link for #tag
 	  		if piece.starts_with?('#')
