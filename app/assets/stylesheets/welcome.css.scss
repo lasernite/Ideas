@@ -143,7 +143,23 @@ hr {
   width: 30px; 
   height: 30px;
   margin-top:8px;
-  margin-left:20px;
+  float: left;
+}
+
+.think_space {
+  float:left;
+  margin-top:5px;
+  margin-left: 12px;
+  font-family: 'Bree Serif', serif;
+  font-size: 24px;
+  text-shadow: 1px 1px 2px #000000;
+  position: absolute;
+  color: #ffffff;
+}
+
+.think_space:hover {
+  color: #ffffff;
+  text-shadow: 1px 1px 2px #065655;
 }
 
 .home_button {
@@ -154,9 +170,11 @@ hr {
 }
 
 .search_box_form {
-  width: 50%;
+  max-width: 100%;
   margin-top: 8px;
-  margin-left: 25%;
+  margin-left: 35px;
+  padding-right: 150px;
+  position: absolute;
 }
 
 .notify {
