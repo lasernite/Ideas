@@ -14,7 +14,3 @@ $('[data-toggle=offcanvas]').click(function() {
 $(document).ready(function() {/* Activate hashtags in .post_box */
     $('.post_box').hashtags();
  });
-
-$(document).ready(function() {/* Make comment boxes grow with more text */
-    $('.comment_box').autosize({append: "\n"});
- });
