@@ -126,14 +126,14 @@
 
                           <a id="top" style="position: relative; top: -150px;">&nbsp;</a> 
 
-                          <%# If request two parts, apparently there's a search request %>
-                          <% if request.url.split('?').length == 2 %>
-                            <%= render 'posts/search' %>
-                          <% else %>
-                          <% end %>
-
                               <%# Render Tag Posts Asynchronously to Populate Stream %>
                               <div id="tag_posts"></div>
+
+                              <%# If request two parts, apparently there's a search request %>
+                              <% if request.url.split('?').length == 2 %>
+                                <%= render 'posts/search' %>
+                              <% else %>
+                              <% end %>
 
                               <%# Render Posts Partial to Populate Stream %>
                               <%= render "posts/index" %>
