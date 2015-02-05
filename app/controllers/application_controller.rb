@@ -10,9 +10,11 @@ class ApplicationController < ActionController::Base
   		post_spliced.map! do |piece|
   			# Map in tag link for #tag
 	  		if piece.starts_with?('#')
-	  			view_context.link_to(piece, atag_path(Atag.find_by(tag:piece[1..-1]).id),
-	  								:class => 'post_hashtag', :remote => true, 
-	  								:onclick => "location.href='#top'")
+          unless piece == nil
+  	  			view_context.link_to(piece, atag_path(Atag.find_by(tag:piece[1..-1]).id),
+  	  								:class => 'post_hashtag', :remote => true, 
+  	  								:onclick => "location.href='#top'")
+          end
 	  		# Map in URL link
 	  		elsif piece.starts_with?('www.','http://','https://')
 	  			view_context.link_to(piece, piece, target: '_blank')
