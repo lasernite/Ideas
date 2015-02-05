@@ -36,6 +36,10 @@ class PostsController < ApplicationController
   def show
   	@post = Post.find(params[:id])
     @comments = Comment.where(post_id:@post.id)
+    if @comments[0] == nil
+      # Borrow someone elses
+      @comments = Comment.offset(rand(Comment.count))[0..0]
+    end
     @posts = Post.all
     @posts_spliced = []
     splice_posts(@posts, @posts_spliced)

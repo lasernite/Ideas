@@ -8,16 +8,6 @@
 	 	<%= piece %>
 	 <% end %>
 
-	 <% if @comments.where(post_id:post_pieces[-1]).length < 1 %>
-		 <%= form_for :comment, remote: true, url: post_comments_path(post_id:post_pieces[-1]) do |f| %>
-				<%= f.hidden_field :post_id, :value => post_pieces[-1] %>
-			<%= f.text_area :text, :class => "comment_box", :placeholder => "Free your mind..." %>
-				<div class='comment_button_padding'>
-			<%= f.submit 'Let it go!', :class => 'comment_button btn btn-default' %>
-			</div>
-		 <% end %>
-		</div>
-	 <% else %>
 	 	 <%# Render Post Comments and Comment Box Asynchronously to Post's Stream on Click %>
 	 	 <div id="<%= 'post' + post_pieces[-1].to_s %>"></div>
     </div>
@@ -27,6 +17,6 @@
 		 <%= link_to content_tag(:span, @comments.where(post_id:post_pieces[-1]).length.to_s + ' Response(s)'), '/posts/' + post_pieces[-1].to_s, remote: true, :class => 'comments_load' %>
 		 </div>
 
-	 <% end %>
   </div>
 <% end %>
+
