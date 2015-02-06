@@ -1,5 +1,8 @@
 <%# Ajax Render for Tags %>
+<div class="atag_hover">
 <%= link_to '#' + @atag.tag, @atag, :class => 'atag_title_main' %>
+<a href="<%= '/atags/' + @atag.id.to_s %>"><i class="fa fa-external-link fa-2x atag_external_link"></i></a>
+</div>
 
 <div class="atags_ajax">
 <%# For each spliced post made of pieces (text and hashtags) %>
