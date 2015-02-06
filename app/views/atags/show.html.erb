@@ -47,7 +47,7 @@
 
 <div class='post_external'>
 <%# For each spliced post made of pieces (text and hashtags) %>
-<% @aposts_spliced_full.reverse.each do |post_pieces| %>
+<% @aposts_spliced_full.each do |post_pieces| %>
   <div class="panel panel-default">
 
   	 <%# Add external link to post in top right corner %>
@@ -74,6 +74,8 @@
   </div>
 <% end %>
 </div>
+
+<%= will_paginate @aposts_spliced_full %>
 
 </div>
 </div>

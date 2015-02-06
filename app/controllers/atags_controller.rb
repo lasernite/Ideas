@@ -25,5 +25,6 @@ class AtagsController < ApplicationController
     # Build all aposts for external community page (non-ajax)
     @aposts_spliced_full = []
     splice_posts_full(@aposts, @aposts_spliced_full)
+    @aposts_spliced_full = @aposts_spliced_full.reverse.paginate(:page => params[:page], :per_page => 30)
   end
 end
