@@ -1,5 +1,5 @@
 <%# For each spliced post made of pieces (text and hashtags) %>
-<% @posts_spliced.reverse.each do |post_pieces| %>
+<% @posts_spliced.each do |post_pieces| %>
   <div class="panel panel-default">
 
   	 <%# Add external link to post in top right corner %>
@@ -25,6 +25,7 @@
 
   </div>
 <% end %>
+<%= will_paginate @posts_spliced %>
 
 
 
