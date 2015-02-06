@@ -1,3 +1,7 @@
+<%# Ajax Render for Tags %>
+<%= link_to '#' + @atag.tag, @atag, :class => 'atag_title_main' %>
+
+<div class="atags_ajax">
 <%# For each spliced post made of pieces (text and hashtags) %>
 <% @aposts_spliced.reverse.each do |post_pieces| %>
   <div class="panel panel-default">
@@ -25,4 +29,5 @@
 
   </div>
 <% end %>
+</div>
 

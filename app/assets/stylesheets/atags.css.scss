@@ -1,3 +1,35 @@
 // Place all the styles related to the tags controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.atag_title_main {
+	font-family: 'Bree Serif', serif;
+	float: left;
+	font-size: 32px;
+	text-shadow: 1px 1px 2px #000000;
+	color: #ffffff;
+}
+
+.atag_title_main:hover {
+	color: #ffffff;
+	text-shadow: 1px 1px 2px #065655;
+}
+
+.atags_ajax {
+	padding-top: 70px;
+}
+
+.atag_title_link {
+	margin-left:22%;
+	margin-top: 5px;
+	font-family: 'Bree Serif', serif;
+	float: left;
+	font-size: 24px;
+	text-shadow: 1px 1px 2px #000000;
+	color: #ffffff;
+}
+
+.atag_title_link:hover {
+	color: #ffffff;
+	text-shadow: 1px 1px 2px #065655;
+}
