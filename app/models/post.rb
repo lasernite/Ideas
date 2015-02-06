@@ -8,4 +8,12 @@ class Post < ActiveRecord::Base
   		:too_short => 'Post too short, 4 character minimum',
   		:too_long => 'Post too long, 11664 character maximum',
   		:message => 'Post is Invalid Length'
+
+  	validate :reasonable_post_count
+
+  	def reasonable_post_count
+		if 10 < Post.where("created_at >= ? AND ip = ?", Time.now - 500, self.ip).size
+			errors.add(:ip, 'Sorry mate, gotta let someone else post for now.')
+		end
+	end
 end

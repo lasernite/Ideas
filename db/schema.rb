@@ -23,12 +23,14 @@ ActiveRecord::Schema.define(version: 20150203041851) do
     t.text     "text"
     t.integer  "post_id"
     t.integer  "parent_id"
+    t.integer  "ip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "posts", force: true do |t|
     t.text     "text"
+    t.integer  "ip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
