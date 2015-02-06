@@ -15,6 +15,7 @@
 
  <%# Render a comment form for this post %>
  <%= form_for :comment, remote:true, url: post_comments_path(post_id:request.path.scan(/\d/).join('')) do |f| %>
+ 		<%= f.hidden_field :ip, :value => request.remote_ip.split('.').join().to_i %>
 		<%= f.hidden_field :post_id, :value => request.path.scan(/\d/).join('') %>
 	<%= f.text_area :text, :class => "comment_box", :placeholder => "Free your mind..." %>
 		<div class='comment_button_padding'>
