@@ -3,7 +3,6 @@ class AtagsController < ApplicationController
   def new
   end
 
-
   def show
   	@atag = Atag.find(params[:id])
   	# Get all unique posts with tag, store as @aposts
@@ -22,5 +21,9 @@ class AtagsController < ApplicationController
   	@atags = Atag.all
   	@aposts_spliced = []
   	splice_posts(@aposts, @aposts_spliced)
+
+    # Build all aposts for external community page (non-ajax)
+    @aposts_spliced_full = []
+    splice_posts_full(@aposts, @aposts_spliced_full)
   end
 end

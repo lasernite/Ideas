@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @comments = Comment.where(post_id:@request_pieces[2])
     @post = [Post.find(@request_pieces[2])]
     @post_spliced = []
-    splice_posts(@post, @post_spliced)
+    splice_posts_full(@post, @post_spliced)
   end
 
   def create

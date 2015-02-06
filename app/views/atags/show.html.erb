@@ -1,1 +1,78 @@
-<%# show.js.erb instead %>
+<div class="wrapper">
+    <div class="box">
+
+      <div class="column col-sm-12 col-xs-12" id="main">
+          <!-- top nav -->
+                <div class="navbar navbar-blue navbar-static-top">
+
+                    <div class="navbar-header col-sm-3">
+                      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle</span>
+                        <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                      </button>
+                      <div>
+                        <%= link_to image_tag('think_space_logo.png', :class => "tslogo"), '/' %>
+                      </div>
+                        <%= link_to 'Think Space', '/', :class => "think_space" %>
+                    </div>
+
+                  <div class="col-sm-9">
+                    <nav class="collapse navbar-collapse" role="navigation">
+
+                    <ul class="nav navbar-nav navbar-right notify">
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation fa-lg"></i></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="">More</a></li>
+                          <li><a href="">More</a></li>
+                          <li><a href="">More</a></li>
+                          <li><a href="">More</a></li>
+                          <li><a href="">More</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <ul class="nav navbar-nav home_button navbar-right">
+                      <li>
+                        <a href="/"><i class="glyphicon glyphicon-home"></i> Home</a>
+                      </li>
+                    </ul>
+                    </nav>
+                  </div>
+                </div>
+                <!-- /top nav -->
+
+<div class='post_external'>
+<%# For each spliced post made of pieces (text and hashtags) %>
+<% @aposts_spliced_full.reverse.each do |post_pieces| %>
+  <div class="panel panel-default">
+
+  	 <%# Add external link to post in top right corner %>
+     <div class="post_external_link">
+     	<a href="<%= '/posts/' + post_pieces[-1].to_s + '/comments' %>">
+     		<i class="fa fa-external-link"></i></a>
+ 	 </div>
+
+    <div class="panel-body panel_body_text" style="word-wrap: break-word;">
+     <%# Build post from pieces (text and hashtags), excluding last element which is post_id %>		
+	 <% post_pieces[0..-2].each do |piece| %>
+	 	<%= piece %>
+	 <% end %>
+
+	 	 <%# Render Post Comments and Comment Box Asynchronously to Post's Stream on Click %>
+	 	 <div id="<%= 'post' + post_pieces[-1].to_s %>"></div>
+    </div>
+
+		 <%# Comments Ajax Link %>
+		 <div class='comments_load_box panel-footer'>
+		 <%= link_to content_tag(:span, @comments.where(post_id:post_pieces[-1]).length.to_s + ' Response(s)'), '/posts/' + post_pieces[-1].to_s, remote: true, :class => 'comments_load' %>
+		 </div>
+
+  </div>
+<% end %>
+</div>
+
+</div>
+</div>
+</div>
