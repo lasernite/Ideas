@@ -8,8 +8,9 @@ class WelcomeController < ApplicationController
 
     # Build all posts as items in @posts_spliced, with each item a post_pieces array
   	@posts_spliced = []
-  	splice_posts(@posts, @posts_spliced)
-    @posts_spliced = @posts_spliced.reverse.paginate(:page => params[:page], :per_page => 30)
+    # Paginate posts first so only posts being loaded are spliced
+    @posts = @posts.reverse.paginate(:page => params[:page], :per_page => 30)
+    splice_posts(@posts, @posts_spliced)
 
     # Get the 50 most used Atags in the past 24hrs based on Ptags
     # Get Ptags created within past 24hrs (86400 seconds)
