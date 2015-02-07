@@ -232,6 +232,17 @@ hr {
   text-shadow: 1px 1px 2px #000000;
 }
 
+.mobile_arrow {
+  color: #ffffff;
+}
+
+.mobile_arrow:hover {
+  color: #000000;
+}
+
+.mobile_arrow_box {
+}
+
 // Shift left-nav down away from top-nav bar on desktop
 @media screen and (min-width: 768px) {
   .nav_padding {
@@ -532,13 +543,19 @@ small.text-muted {
     transition: all 0.25s ease-out;
   }
   .row-offcanvas-left.active {
-    left: 33%;
+    left: 75%;
     .sidebar-offcanvas {
-      left: -33%;
+      left: -75%;
       position: absolute;
       top: 0;
-      width: 33%;
+      width: 75%;
       margin-left: 5px;
+    }
+    #lg-menu {
+      margin-right: 10px;
+    }
+    .mobile_arrow_box {
+      margin-bottom: 10px;
     }
   }
   #sidebar {
