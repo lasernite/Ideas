@@ -25,7 +25,9 @@ class ApplicationController < ActionController::Base
 	  		end
   		end
   		# Append post id to end for comment routing
-  		post_spliced.append(post.id)
+      unless post == nil
+  		  post_spliced.append(post.id)
+      end
   		# Append the split mapped post to array of such posts
   		spliced.append(post_spliced)
   	end
@@ -52,7 +54,9 @@ class ApplicationController < ActionController::Base
         end
       end
       # Append post id to end for comment routing
-      post_spliced.append(post.id)
+      unless post == nil
+        post_spliced.append(post.id)
+      end
       # Append the split mapped post to array of such posts
       spliced.append(post_spliced)
     end
