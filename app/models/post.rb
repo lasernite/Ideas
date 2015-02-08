@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-	default_scope { order(:created_at) }
+	default_scope { order(:id) }
 	belongs_to :tag
 	has_many :ptags
 	has_many :comments
