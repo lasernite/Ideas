@@ -5,7 +5,6 @@ class CreatePosts < ActiveRecord::Migration
       t.integer :ip
 
       t.timestamps
-      change_column :posts, :ip, :limit => 8
     end
   end
 end
