@@ -4,9 +4,10 @@ class CreateComments < ActiveRecord::Migration
       t.text :text
       t.integer :post_id
       t.integer :parent_id
-      t.integer :ip, :limit => 8
+      t.integer :ip
 
       t.timestamps
+      change_column :posts, :ip, :limit => 8
     end
   end
 end
