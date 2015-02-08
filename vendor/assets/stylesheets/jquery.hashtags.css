@@ -34,6 +34,8 @@
 	height: 100px;
 	margin-left: 5%;
 	font-family: 'Bree Serif', serif;
+	border-width: 3px; 
+	border-color: #ffffff;
 }
 
 .jqueryHashtags .hashtag{
