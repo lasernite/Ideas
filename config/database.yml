@@ -27,8 +27,6 @@
 development:
   adapter: postgresql
   database: think_development
-  username: lasernite
-  password:
   pool: 5
   timeout: 5000
 

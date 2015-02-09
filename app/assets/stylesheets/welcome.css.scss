@@ -301,7 +301,6 @@ hr {
 .comment_box {
   float: left;
   width: 74%;
-  border-radius: 4px;
   outline: none;
   margin-top: 6px;
   margin-bottom: 22px;
@@ -319,6 +318,11 @@ hr {
   font-family: 'Bree Serif', serif;
   font-size: 18px;
   float: right;
+  background-color: #54BEEA;
+}
+
+.comment_button:hover {
+  background-color: rgb(33, 150, 198);
 }
 
 .comment_button_padding {

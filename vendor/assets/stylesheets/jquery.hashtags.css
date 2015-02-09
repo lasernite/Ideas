@@ -23,9 +23,6 @@
 	resize:none !important;
 	-webkit-transition: height 0.2s;
 	border: 1px solid #cccccc;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
 	padding: 4px 6px;
 	vertical-align:middle;
 	min-height:100px !important;
