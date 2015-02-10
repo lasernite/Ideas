@@ -28,6 +28,13 @@ class PostsController < ApplicationController
                 :atag_id => Atag.find_by(tag:tag.downcase).id })
         @ptag.save
       end
+
+      # Create Notification and User (if ze doesn't exist)
+      Notification.new(uip:[@post.ip], post_id: @post.id, post_string: @post.text[0..42]).save
+      if User.find_by(ip:@post.ip) == nil
+        User.new(ip:@post.ip, ncount: 0).save
+      else
+      end
     else
     end
   	redirect_to '/'

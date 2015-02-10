@@ -15,6 +15,15 @@ class CommentsController < ApplicationController
   	# Create new comment based on comments/_new.html.erb form
   	@comment = Comment.new(comment_params)
     @comment.save
+
+    # Increase all users in notification count (notification)
+    @notification = Notification.find_by(post_id:@comment.post_id)
+    @notification.uip.uniq.each do |uip|
+      User.find_by(ip:uip).increment!(:ncount)
+    end
+    # Add commenter to notification
+    @notification.update_attributes(uip: @notification.uip + [request.remote_ip.split('.').join()])
+
     # @posts_path = '/posts/' + @comment.post_id.to_s
     @comments = Comment.where(post_id:@comment.post_id)
   	render 'posts/show'
