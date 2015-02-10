@@ -5,6 +5,8 @@ class WelcomeController < ApplicationController
   	@ptags = Ptag.all
   	@atags = Atag.all
     @comments = Comment.all
+    @notifications = Notification.all
+    @user = User.find_by(ip:request.remote_ip.split('.').join())
 
     # Build all posts as items in @posts_spliced, with each item a post_pieces array
   	@posts_spliced = []
