@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'notifications/index'
+
+  get 'users/index'
+
   get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -18,6 +22,12 @@ Rails.application.routes.draw do
 
   # Create tags resource
   resources :atags
+
+  # Create users resource
+  resources :users
+
+  # Create notifications resource
+  resources :notifications
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150208033647) do
+ActiveRecord::Schema.define(version: 20150210075020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(version: 20150208033647) do
     t.integer  "post_id"
     t.integer  "parent_id"
     t.integer  "ip",         limit: 8
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notifications", force: true do |t|
+    t.integer  "uip",         limit: 8, array: true
+    t.integer  "post_id"
+    t.string   "post_string"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -65,5 +73,12 @@ ActiveRecord::Schema.define(version: 20150208033647) do
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
+
+  create_table "users", force: true do |t|
+    t.integer  "ip",         limit: 8
+    t.integer  "ncount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
