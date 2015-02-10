@@ -16,13 +16,21 @@ class CommentsController < ApplicationController
   	@comment = Comment.new(comment_params)
     @comment.save
 
-    # Increase all users in notification count (notification)
+    # Create user if they don't already exist
+    @ip = @comment.ip
+    if User.find_by(ip:@ip) == nil
+      User.new(ip:@ip, ncount: 0).save
+    else
+    end
+    # Increase all users in notification count (notification), except commenter
     @notification = Notification.find_by(post_id:@comment.post_id)
     @notification.uip.uniq.each do |uip|
-      User.find_by(ip:uip).increment!(:ncount)
+      unless uip == @ip
+        User.find_by(ip:uip).increment!(:ncount)
+      end
     end
     # Add commenter to notification
-    @notification.update_attributes(uip: @notification.uip + [request.remote_ip.split('.').join()])
+    @notification.update_attributes(uip: @notification.uip + [@ip])
 
     # @posts_path = '/posts/' + @comment.post_id.to_s
     @comments = Comment.where(post_id:@comment.post_id)
