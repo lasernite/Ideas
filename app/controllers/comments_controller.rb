@@ -3,7 +3,9 @@ class CommentsController < ApplicationController
 
   def index
     @request_pieces = request.path.split('/')
+    # Find comments for post and splice
     @comments = Comment.where(post_id:@request_pieces[2])
+
     @post = [Post.find(@request_pieces[2])]
     @post_spliced = []
     splice_posts_full(@post, @post_spliced)

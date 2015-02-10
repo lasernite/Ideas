@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   	  								:onclick => "location.href='#top'")
           end
 	  		# Map in URL link
-	  		elsif piece.downcase.starts_with?('www.','http://','https://')
+	  		elsif piece.starts_with?('www.','http://','https://')
 	  			view_context.link_to(piece, piece, target: '_blank')
 	  		# Map regular string piece back to string
 	  		else

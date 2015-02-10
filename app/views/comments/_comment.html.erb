@@ -1,12 +1,27 @@
 <%# Ajax for comments on posts %>
-
+<% @comments_spliced = [] %>
+<% @comments.each do |comment| %>
+<%   comment_spliced = comment.text.split %>
+<%   comment_spliced.map! do |piece| %>
+	   <%# Map in URL link %>
+<%     if piece.starts_with?('www.','http://','https://') %>
+<%       link_to(piece, piece, target: '_blank') %>
+	   <%# Map regular string piece back to string %>
+<%     else %>
+<%       piece %>
+<%     end %>
+<%   end %>
+<%   @comments_spliced.append(comment_spliced) %>
+<% end %>
 <div class='comments_top'>
  <%# Render each comment for this post %>
- <% @comments.each do |comment| %>
+ <% @comments_spliced.each do |comment| %>
    <div class="panel panel-default comments">
      <div class="panel-body" style="word-wrap: break-word;">
-     	<%# Show comment %>
-		<%= comment.text %>
+     	<%# Put comment pieces together %>
+     	<% comment.each do |piece| %>
+		<%= piece %>
+		<% end %>
      </div>
    </div>
  <% end %>
