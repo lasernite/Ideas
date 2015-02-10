@@ -562,6 +562,12 @@ small.text-muted {
       margin-bottom: 10px;
     }
   }
+
+  .col-sm-12, .full, .col-sm-9 {
+    padding-left: 0px;
+    padding-right: 2px;
+  }
+
   #sidebar {
     padding-left: 3px;
     a {
