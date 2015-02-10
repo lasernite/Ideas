@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   end
 
   def show
-  	@notifications = Notification.all
   	@user = User.find_by(ip:request.remote_ip.split('.').join())
+  	@notifications = Notification.where("? = ANY (uip)", @user.ip)
   end
 end

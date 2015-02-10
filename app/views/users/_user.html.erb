@@ -1,5 +1,5 @@
-<h1> I'm a cat </h1>
-<h1> I'm a cat </h1>
-<h1> I'm a cat </h1>
-<h1> I'm a cat </h1>
-<h1> I'm a cat </h1>
+<% @notifications.each do |notification| %>
+	<div class="notification">
+		<%= link_to notification.post_string + '...' , post_url(Post.find_by(id:notification.post_id)) + '/comments' %>
+	</div>
+<% end%>
