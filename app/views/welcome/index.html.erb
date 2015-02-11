@@ -49,7 +49,7 @@
                   <% if @user.ncount > 0 %>
                     <ul class="nav navbar-nav navbar-right notify notify_active"> 
                       <li class="dropdown">
-                        <%= link_to '', @user, remote: true, :class => "dropdown-toggle", data: {:toggle=>"dropdown"} %><div class="alert_circle"><%= @user.ncount %></div>
+                        <%= link_to @user.ncount, @user, remote: true, :class => "dropdown-toggle", data: {:toggle=>"dropdown"} %>
                         <ul class="dropdown-menu">
                           <li><div id="notify_ajax"></div></li>
                         </ul>
@@ -59,7 +59,7 @@
                   <% else %>
                     <ul class="nav navbar-nav navbar-right notify">
                       <li class="dropdown">
-                        <%= link_to '', @user, remote: true, :class => "dropdown-toggle", data: {:toggle=>"dropdown"} %><i class="fa fa-exclamation fa-lg"></i>
+                        <%= link_to @user, remote: true, :class => "dropdown-toggle", data: {:toggle=>"dropdown"} do %><i class="fa fa-exclamation fa-lg"></i><% end %>
                         <ul class="dropdown-menu">
                           <li><div id="notify_ajax"></div></li>
                         </ul>

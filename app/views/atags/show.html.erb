@@ -23,19 +23,35 @@
 
                     	<%= link_to '#' + @atag.tag, @atag, :class => 'atag_title_link' %>
                     	
-	                    <ul class="nav navbar-nav navbar-right notify">
-	                      <li class="dropdown">
-	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation fa-lg"></i></a>
-	                        <ul class="dropdown-menu">
-	                          <li><a href="/atags/6">Feedback</a></li>
-	                        </ul>
-	                      </li>
-	                    </ul>
-	                    <ul class="nav navbar-nav home_button navbar-right">
-	                      <li>
-	                        <a href="/"><i class="fa fa-home fa-lg"></i> Home</a>
-	                      </li>
-	                    </ul>
+    	                <%# If user has notifications display them %>
+                      <% @user = User.find_by(ip:request.remote_ip.split('.').join()) %>
+                      <% if @user.ncount > 0 %>
+                        <ul class="nav navbar-nav navbar-right notify notify_active"> 
+                          <li class="dropdown">
+                            <%= link_to @user.ncount, @user, remote: true, :class => "dropdown-toggle", data: {:toggle=>"dropdown"} %>
+                            <ul class="dropdown-menu">
+                              <li><div id="notify_ajax"></div></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      <%# Else just show normal %>
+                      <% else %>
+                        <ul class="nav navbar-nav navbar-right notify">
+                          <li class="dropdown">
+                            <%= link_to @user, remote: true, :class => "dropdown-toggle", data: {:toggle=>"dropdown"} do %><i class="fa fa-exclamation fa-lg"></i><% end %>
+                            <ul class="dropdown-menu">
+                              <li><div id="notify_ajax"></div></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      <% end %>
+
+                      <ul class="nav navbar-nav home_button navbar-right">
+                      <li>
+                        <a href="/"><i class="fa fa-home fa-lg"></i> Home</a>
+                      </li>
+                      </ul>
+
                     </nav>
                   </div>
                 </div>

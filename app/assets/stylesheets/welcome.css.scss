@@ -108,7 +108,7 @@ hr {
 .navbar-blue {
   .dropdown-menu li {
     a {
-      color: #1D8C5C;
+      // color: #1D8C5C;
     }
     > a {
       padding-left: 30px;
@@ -173,7 +173,7 @@ hr {
   max-width: 100%;
   margin-top: 8px;
   margin-left: 35px;
-  padding-right: 150px;
+  padding-right: 180px;
   position: absolute;
 }
 
@@ -183,28 +183,54 @@ hr {
 
 .notify_active {
   background-color: #E9573F;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-size: 24px; 
+  font-family: 'Bree Serif', serif;
+}
+
+.notify_active:hover {
+  background-color: #1D8C5C;
 }
 
 .dropdown-menu {
-  width: 450px;
+  width: 500px;
 }
 
 .notification {
   width: 100%;
+  line-height: 28px;
+  padding-left: 10px;
+  font-family: 'Bree Serif', serif;
 }
 
-.alert_circle {
-    border-radius: 20%;
-    width: 22px;
-    height: 22px;
-    padding-top: 2px;
-    padding-right: 1px;
-    margin-bottom: -2px;
-    background: #E9573F;
-    color: #ffffff;
-    text-align: center;
-    font: 14px Arial, sans-serif;
-    border: 2px solid #ffffff;
+.notification a:hover {
+  color: #1F94AE;
+}
+
+.all_notification {
+  width: 100%;
+  line-height: 28px;
+  padding-left: 10px;
+  font-family: 'Bree Serif', serif;
+  word-wrap: break-word;
+}
+
+.all_notification a {
+  color: #ffffff;
+  text-shadow: 1px 1px 2px #000000;
+}
+
+.all_notification a:hover {
+  color: #000000;
+  text-shadow: 1px 1px 2px #065655;
+}
+
+
+.all_notify {
+  padding-top: 60px;
+  margin-left: 7%;
+  margin-right: 7%;
 }
 
 .fa-exclamation {
@@ -235,8 +261,10 @@ hr {
   padding-top: 15px;
   color: #ffffff;
   background-image: linear-gradient(to bottom, #2196ca, rgba(25, 151, 93, 0.65));
+  // background-color: #444444;
   // text-shadow: 0 0 2px #000000;
-  padding-left: 5px;
+  padding-left: 10px;
+  // padding-right: 25px;
 }
 
 .trending {

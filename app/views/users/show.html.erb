@@ -1,3 +1,5 @@
+<%# All User Notification %>
+
 <div class="wrapper">
     <div class="box">
 
@@ -21,7 +23,7 @@
                   <div class="col-sm-9">
                     <nav class="collapse navbar-collapse" role="navigation">
 
-                      <%# If user has notifications display them %>
+    	                <%# If user has notifications display them %>
                       <% @user = User.find_by(ip:request.remote_ip.split('.').join()) %>
                       <% if @user.ncount > 0 %>
                         <ul class="nav navbar-nav navbar-right notify notify_active"> 
@@ -49,30 +51,22 @@
                         <a href="/"><i class="fa fa-home fa-lg"></i> Home</a>
                       </li>
                       </ul>
-
+                      
                     </nav>
                   </div>
                 </div>
                 <!-- /top nav -->
 
-<div class="panel panel-default post_external">
-    <div class="panel-body panel_body_text" style="word-wrap: break-word;">
-		<% @post_spliced[0][0..-2].each do |piece| %>
-			<%= piece %>
-		<% end %>
 
-		<div id="<%= 'post' + @request_pieces[2].to_s %>"></div>
- 	</div>
-
-	<%# Comments Ajax Link %>
-	<div class='comments_load_box panel-footer'>
-	<%= link_to content_tag(:span, @comments.where(post_id:@request_pieces[2]).length.to_s + ' Response(s)'), '/posts/' + @request_pieces[2].to_s, remote: true, :class => 'comments_load' %>
+<div class="all_notify">
+<% @all_notifications.each do |notification| %>
+	<div class="all_notification">
+		<%= link_to 'Somebody commented on "' + notification.post_string + '..."' , post_url(Post.find_by(id:notification.post_id)) + '/comments' %>
 	</div>
- </div>
-
+<% end%>
+<%= will_paginate @all_notifications, :class => 'all_notification' %>
+</div>
 
 </div>
 </div>
 </div>
-
-
