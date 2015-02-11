@@ -30,7 +30,7 @@ class PostsController < ApplicationController
       end
 
       # Create Notification and User (if ze doesn't exist)
-      Notification.new(uip:[@post.ip], post_id: @post.id, post_string: @post.text[0..60]).save
+      Notification.new(uip:[@post.ip], post_id: @post.id, post_string: @post.text[0..64]).save
       if User.find_by(ip:@post.ip) == nil
         User.new(ip:@post.ip, ncount: 0).save
       else

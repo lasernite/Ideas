@@ -61,7 +61,7 @@
 <div class="all_notify">
 <% @all_notifications.each do |notification| %>
 	<div class="all_notification">
-		<%= link_to 'Somebody commented on "' + notification.post_string + '..."' , post_url(Post.find_by(id:notification.post_id)) + '/comments' %>
+		<%= link_to notification.post_string + '..."' , post_url(Post.find_by(id:notification.post_id)) + '/comments' %>
 	</div>
 <% end%>
 <%= will_paginate @all_notifications, :class => 'all_notification' %>

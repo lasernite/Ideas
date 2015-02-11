@@ -195,14 +195,16 @@ hr {
 
 .dropdown-menu {
   width: 500px;
+  padding-top: 15px;
 }
 
 .notification {
   width: 100%;
-  line-height: 28px;
+  line-height: 22px;
   padding-left: 10px;
   font-family: 'Bree Serif', serif;
   word-wrap:break-word;
+  padding-bottom: 20px;
 }
 
 .notification a:hover {
@@ -215,6 +217,7 @@ hr {
   padding-left: 10px;
   font-family: 'Bree Serif', serif;
   word-wrap: break-word;
+  padding-bottom: 20px;
 }
 
 .all_notification a {
