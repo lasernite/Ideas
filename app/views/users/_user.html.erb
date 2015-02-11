@@ -1,7 +1,7 @@
 <%# Ajax recent notifications %>
 <% @notifications.each do |notification| %>
 	<div class="notification">
-		<%= link_to 'Somebody commented on "' + notification.post_string + '..."' , post_url(Post.find_by(id:notification.post_id)) + '/comments' %>
+		<%= link_to notification.post_string + '..."' , post_url(Post.find_by(id:notification.post_id)) + '/comments' %>
 	</div>
 <% end%>
 <center class="notification"><%= link_to 'See all notifications', @user %></center>
