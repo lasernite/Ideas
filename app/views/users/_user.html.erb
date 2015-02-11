@@ -1,5 +1,7 @@
 <% @notifications.each do |notification| %>
 	<div class="notification">
-		<%= link_to 'Somebody responded to "' + notification.post_string + '..."' , post_url(Post.find_by(id:notification.post_id)) + '/comments' %>
+		<%= link_to 'Somebody responded to post "' + notification.post_string + '..."' , post_url(Post.find_by(id:notification.post_id)) + '/comments' %>
 	</div>
 <% end%>
+<% @user[:ncount] = 0 %>
+<% @user.save %>
