@@ -37,7 +37,7 @@
                     <h3 class="trending"> Trending Now </h3>
                     <center>
                     <% @recent_tags.each do |tag| %>
-                        <%= link_to '#' + tag[0], atag_path(Atag.find_by(tag:tag[0]).id), 
+                        <%= link_to '#' + tag[0], atag_path(Atag.find_by(tag:tag[0])), 
                             :class => 'trending_tags', :remote => true, 
                             :onclick => "location.href='#top'" %>
                     <% end %>

@@ -2,6 +2,6 @@ class Atag < ActiveRecord::Base
 	has_many :posts
 
 	def to_param
-		"#{id}-#{tag}"
+		tag
 	end
 end
