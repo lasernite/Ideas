@@ -20,6 +20,9 @@ module CommentsHelper
 	       			piece 
 	     		end 
 	   		end 
+	   		# Add last digit of IP to end for CSS color comments
+	   		comment_spliced.append(comment.ip.to_s[-1])
+	   		# Append spliced comment to array of spliced comments
 	   		spliced.append(comment_spliced) 
 	 	end 
 	end

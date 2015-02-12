@@ -5,9 +5,10 @@
  <%# Render each comment for this post %>
  <% @comments_spliced.each do |comment| %>
    <div class="panel panel-default comments">
-     <div class="panel-body" style="word-wrap: break-word;">
-     	<%# Put comment pieces together %>
-     	<% comment.each do |piece| %>
+   	 <%# Add comments color css %>
+     <div class="panel-body <%= 'comment' + comment[-1] %>" style="word-wrap: break-word;">
+     	<%# Put comment pieces together excluding IP %>
+     	<% comment[0..-2].each do |piece| %>
 		<%= piece %>
 		<% end %>
      </div>
