@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   			# Map in tag link for #tag
 	  		if piece.starts_with?('#')
           unless piece == nil
-  	  			view_context.link_to(piece.downcase, atag_path(Atag.find_by(tag:piece[1..-1].downcase)),
+  	  			view_context.link_to(piece.downcase, '/t/' + piece[1..-1].downcase,
   	  								:class => 'post_hashtag', :remote => true, 
   	  								:onclick => "location.href='#top'")
           end
@@ -45,7 +45,7 @@ class ApplicationController < ActionController::Base
         # Map in tag link for #tag
         if piece.starts_with?('#')
           unless piece == nil
-            view_context.link_to(piece.downcase, atag_path(Atag.find_by(tag:piece[1..-1].downcase)),
+            view_context.link_to(piece.downcase, '/t/' + piece[1..-1].downcase,
                       :class => 'post_hashtag')
           end
         # Map in URL link

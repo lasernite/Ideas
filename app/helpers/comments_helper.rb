@@ -6,7 +6,7 @@ module CommentsHelper
 				# Map in tag link for #tag
 	  			if piece.starts_with?('#')
           			unless piece == nil
-  	  					link_to(piece.downcase, atag_path(Atag.find_by(tag:piece[1..-1].downcase)),
+  	  					link_to(piece.downcase, '/t/' + piece[1..-1].downcase,
   	  					:class => 'post_hashtag', :remote => true, :onclick => "location.href='#top'")
           			end
 		   		# Map in URL link 
@@ -14,7 +14,7 @@ module CommentsHelper
 	       			link_to(piece, piece, target: '_blank') 
 	       		# Map in /t/community links
         		elsif piece.downcase.starts_with?('/t/')
-          			link_to(piece, piece)
+          			link_to(piece.downcase, piece.downcase)
 		   		# Map regular string piece back to string 
 	     		else 
 	       			piece 
