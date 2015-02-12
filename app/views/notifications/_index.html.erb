@@ -1,0 +1,40 @@
+<%# If user has notifications display them %>
+<% @user = User.find_by(ip:request.remote_ip.split('.').join()) %>
+<% unless @user == nil %>
+  <% if @user.ncount > 0 %>
+
+      <%# Render Notifications via Ajax %>
+      <ul class="nav navbar-nav navbar-right notify notify_active"> 
+        <li class="dropdown">
+          <%= link_to @user.ncount, @user, remote: true, :class => "dropdown-toggle", data: {:toggle=>"dropdown"} %>
+
+          <%# Update Notification Style to Reflect Current State %>
+          <div id="notify_state"></div>
+
+          <ul class="dropdown-menu">
+            <li><div id="notify_ajax"></div></li>
+          </ul>
+        </li>
+      </ul>
+      
+  <%# Else just show normal %>
+  <% else %>
+
+      <%# Render Notifications via Ajax %>
+      <ul class="nav navbar-nav navbar-right notify">
+        <li class="dropdown">
+
+          <%= link_to @user, remote: true, :class => "dropdown-toggle", data: {:toggle=>"dropdown"} do %><i class="fa fa-exclamation fa-lg"></i><% end %>
+
+          <%# Update Notification Style to Reflect Current State %>
+          <div id="notify_state"></div>
+
+          <ul class="dropdown-menu">
+            <%# Load Ajax Notifications %>
+            <li><div id="notify_ajax"></div></li>
+          </ul>
+
+        </li>
+      </ul>
+  <% end %>
+<% end %>

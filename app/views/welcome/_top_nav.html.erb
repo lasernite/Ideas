@@ -1,0 +1,43 @@
+<!-- top nav -->
+      <div class="navbar navbar-blue navbar-static-top">
+
+          <!-- Mobile Top Nav -->
+          <div class="navbar-header col-sm-3">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle</span>
+              <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+            </button>
+            <div>
+
+              <%= link_to image_tag('think_space_logo.png', :class => "tslogo"), '/' %>
+            </div>
+              <%= link_to 'Think Space', '/', :class => "think_space" %>
+          </div>
+
+        <div class="col-sm-9">
+
+          <form class="search_box_form">
+              <div class="input-group input-group-sm" class="search_box_div">
+                <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term" class="search_box">
+                <div class="input-group-btn">
+                  <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                </div>
+              </div>
+          </form>
+
+        <nav class="collapse navbar-collapse" role="navigation">
+
+          <%# Render Notifications Component %>
+          <%= render 'notifications/index' %>
+
+          <ul class="nav navbar-nav home_button navbar-right">
+            <li>
+              <a href="/"><i class="fa fa-home fa-lg"></i> Home</a>
+            </li>
+          </ul>
+          </nav>
+        </div>
+      </div>
+      <!-- /top nav -->

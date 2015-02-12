@@ -4,3 +4,6 @@ $(document).ready(function() {/* Make comment boxes grow with more text */
     $('.comment_box').autosize({append: "\n"});
     $('.comment_box').val('');
  });
+
+// Check Notifications State
+$("#notify_state").html("<%= escape_javascript(render 'users/nstate') %>");

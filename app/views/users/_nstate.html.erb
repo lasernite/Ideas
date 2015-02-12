@@ -1,0 +1,16 @@
+<% @user = User.find_by(ip:request.remote_ip.split('.').join()) %>
+<% unless @user == nil %>
+<%# Render Notifications State Change via Ajax %>
+  <% if @user.ncount > 0 %>
+
+      <div class="notify_state_on"> 
+          <%= @user.ncount %>
+      </div>
+      
+  <%# Else just show normal %>
+  <% else %>
+    <div class="notify_state_off"
+          <i class="fa fa-exclamation fa-lg"></i>
+    </div>
+  <% end %>
+<% end %>

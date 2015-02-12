@@ -2,3 +2,7 @@
 $("#tag_posts").html("<%= escape_javascript(render @atag) %>");
 
 $(<%= 'post' + request.path.scan(/\d/).join('') %>).html("<%= escape_javascript(render @comments[0]) %>");
+
+
+// Check Notifications State
+$("#notify_state").html("<%= escape_javascript(render 'users/nstate') %>");

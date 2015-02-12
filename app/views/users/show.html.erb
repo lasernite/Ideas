@@ -4,59 +4,9 @@
     <div class="box">
 
       <div class="column col-sm-12 col-xs-12" id="main">
-          <!-- top nav -->
-                <div class="navbar navbar-blue navbar-static-top">
 
-                    <div class="navbar-header col-sm-3">
-                      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle</span>
-                        <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                      </button>
-                      <div>
-                        <%= link_to image_tag('think_space_logo.png', :class => "tslogo"), '/' %>
-                      </div>
-                        <%= link_to 'Think Space', '/', :class => "think_space" %>
-                    </div>
-
-                  <div class="col-sm-9">
-                    <nav class="collapse navbar-collapse" role="navigation">
-
-    	                <%# If user has notifications display them %>
-                      <% @user = User.find_by(ip:request.remote_ip.split('.').join()) %>
-                      <% if @user.ncount > 0 %>
-                        <ul class="nav navbar-nav navbar-right notify notify_active"> 
-                          <li class="dropdown">
-                            <%= link_to @user.ncount, @user, remote: true, :class => "dropdown-toggle", data: {:toggle=>"dropdown"} %>
-                            <ul class="dropdown-menu">
-                              <li><div id="notify_ajax"></div></li>
-                            </ul>
-                          </li>
-                        </ul>
-                      <%# Else just show normal %>
-                      <% else %>
-                        <ul class="nav navbar-nav navbar-right notify">
-                          <li class="dropdown">
-                            <%= link_to @user, remote: true, :class => "dropdown-toggle", data: {:toggle=>"dropdown"} do %><i class="fa fa-exclamation fa-lg"></i><% end %>
-                            <ul class="dropdown-menu">
-                              <li><div id="notify_ajax"></div></li>
-                            </ul>
-                          </li>
-                        </ul>
-                      <% end %>
-
-                      <ul class="nav navbar-nav home_button navbar-right">
-                      <li>
-                        <a href="/"><i class="fa fa-home fa-lg"></i> Home</a>
-                      </li>
-                      </ul>
-                      
-                    </nav>
-                  </div>
-                </div>
-                <!-- /top nav -->
-
+      	<%# Render Top Navigation Bar %>
+        <%= render 'welcome/top_nav' %>
 
 <div class="all_notify">
 <% @all_notifications.each do |notification| %>
