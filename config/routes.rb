@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   resources :ptags
 
   # Create tags resource
-  resources :atags
+  resources :atags, :path => "t/"
 
   # Create users resource
   resources :users
