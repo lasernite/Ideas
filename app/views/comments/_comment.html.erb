@@ -3,16 +3,18 @@
 <% splice_comments(@comments, @comments_spliced) %>
 <div class='comments_top'>
  <%# Render each comment for this post %>
- <% @comments_spliced.each do |comment| %>
-   <div class="panel panel-default comments">
-   	 <%# Add comments color css %>
-     <div class="panel-body <%= 'comment' + comment[-1] %>" style="word-wrap: break-word;">
-     	<%# Put comment pieces together excluding IP %>
-     	<% comment[0..-2].each do |piece| %>
-		<%= piece %>
-		<% end %>
-     </div>
-   </div>
+ <% unless @comments_spliced == nil %>
+	 <% @comments_spliced.each do |comment| %>
+	   <div class="panel panel-default comments">
+	   	 <%# Add comments color css %>
+	     <div class="panel-body <%= 'comment' + comment[-1] %>" style="word-wrap: break-word;">
+	     	<%# Put comment pieces together excluding IP %>
+	     	<% comment[0..-2].each do |piece| %>
+			<%= piece %>
+			<% end %>
+	     </div>
+	   </div>
+	 <% end %>
  <% end %>
 </div>
 
