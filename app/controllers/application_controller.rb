@@ -27,8 +27,9 @@ class ApplicationController < ActionController::Base
 	  			piece
 	  		end
   		end
-  		# Append post id to end for comment routing
+  		# Last digit of IP for color, and append post id to end for comment routing
       unless post == nil
+        post_spliced.append(post.ip.to_s[-1])
   		  post_spliced.append(post.id)
       end
   		# Append the split mapped post to array of such posts
@@ -59,8 +60,9 @@ class ApplicationController < ActionController::Base
           piece
         end
       end
-      # Append post id to end for comment routing
+      # Last digit of IP for color, and append post id to end for comment routing
       unless post == nil
+        post_spliced.append(post.ip.to_s[-1])
         post_spliced.append(post.id)
       end
       # Append the split mapped post to array of such posts

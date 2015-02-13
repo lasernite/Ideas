@@ -58,6 +58,63 @@
 */
 
 
+// Post Colors
+
+.post_color_tag {
+  width:20px;
+  display: inline-block;
+}
+
+// White
+.post_color0 {
+  background-color: #FFFFFF;
+}
+
+// Blue Blue
+.post_color1 {
+  background-color: #0055FF;
+}
+
+// Alice Blue
+.post_color2 {
+  background-color: #0088FF;
+}
+
+// Darker Azure Turquoise
+.post_color3 {
+  background-color: #00FFF4;
+}
+
+// Honeydew Green
+.post_color4 {
+  background-color: #00FA00;
+}
+
+// Ivory Yellow
+.post_color5 {
+  background-color: #FFFF00;
+}
+
+// Floral White (Orange)
+.post_color6 {
+  background-color: #FFAA00;
+}
+
+// Light Rose Red
+.post_color7 {
+  background-color: #F60000;
+}
+
+// Royal Purple
+.post_color8 {
+  background-color: #8800FF;
+}
+
+// Light Gray
+.post_color9 {
+  background-color: #000000;
+}
+
 // Placeholder Text Formatting cross-browser
 
 .post_box::-webkit-input-placeholder {

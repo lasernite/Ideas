@@ -16,8 +16,13 @@
  	 </div>
 
     <div class="panel-body panel_body_text" style="word-wrap: break-word;">
+
+     <div class="<%= 'post_color' + post_pieces[-2].to_s  %> post_color_tag">
+     	<div class="post_color_tag"></div>
+     </div>
+     
      <%# Build post from pieces (text and hashtags), excluding last element which is post_id %>		
-	 <% post_pieces[0..-2].each do |piece| %>
+	 <% post_pieces[0..-3].each do |piece| %>
 	 	<%= piece %>
 	 <% end %>
 

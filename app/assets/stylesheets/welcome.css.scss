@@ -277,6 +277,7 @@ hr {
 }
 
 #main {
+  // background-color: #F8F8F8;
   background-image: linear-gradient(to bottom, #2196ca, rgba(25, 151, 93, 0.65));
   padding-left: 0;
   padding-right: 0;
@@ -294,11 +295,11 @@ hr {
   padding: 0px;
   padding-top: 15px;
   color: #ffffff;
-  background-image: linear-gradient(to bottom, #2196ca, rgba(25, 151, 93, 0.65));
-  // background-color: #444444;
+  // background-image: linear-gradient(to bottom, #2196ca, rgba(25, 151, 93, 0.65));
+  background-color: #444444;
   // text-shadow: 0 0 2px #000000;
   padding-left: 10px;
-  // padding-right: 25px;
+  padding-right: 25px;
 }
 
 .trending {
@@ -428,8 +429,8 @@ hr {
 }
 
 .comments_load_box {
-  width: 100%;
   background-color: #F5F5F5;
+  width: 100%;
   position: relative;
   height: 35px;
 }
