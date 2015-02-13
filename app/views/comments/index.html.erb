@@ -8,11 +8,11 @@
       <div class="panel panel-default post_external">
         <div class="panel-body panel_body_text" style="word-wrap: break-word;">
 
-          <div class="<%= 'post_color' + post_pieces[-2].to_s  %> post_color_tag">
+          <div class="<%= 'post_color' + @post_spliced[0][-2].to_s  %> post_color_tag">
             <div class="post_color_tag"></div>
           </div>
 
-      		<% @post_spliced[0][0..-2].each do |piece| %>
+      		<% @post_spliced[0][0..-3].each do |piece| %>
       			<%= piece %>
       		<% end %>
 

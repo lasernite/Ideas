@@ -173,7 +173,6 @@ hr {
 .search_box_form {
   max-width: 100%;
   margin-top: 8px;
-  margin-left: 35px;
   padding-right: 180px;
   position: absolute;
 }
@@ -298,7 +297,7 @@ hr {
   // background-image: linear-gradient(to bottom, #2196ca, rgba(25, 151, 93, 0.65));
   background-color: #444444;
   // text-shadow: 0 0 2px #000000;
-  padding-left: 10px;
+  padding-left: 5px;
   padding-right: 25px;
 }
 
@@ -344,7 +343,7 @@ hr {
 // Shift left-nav down away from top-nav bar on desktop
 @media screen and (min-width: 768px) {
   .nav_padding {
-    margin-top: 61px;
+    margin-top: 10px;
   } 
 }
 
@@ -635,7 +634,6 @@ small.text-muted {
 
   // Top Nav
   .search_box_form {
-    margin-left: 63px;
     padding-right: 37px;
   }
 }
