@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   def index
     @request_pieces = request.path.split('/')
     # Find comments for post and splice
-    @comments = Comment.where(post_id:@request_pieces[2])
+    @comments = Post.find(@request_pieces[2]).comments
 
     @post = [Post.find(@request_pieces[2])]
     @post_spliced = []
@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
   	@comment = Comment.new(comment_params)
     @comment.save
     # @posts_path = '/posts/' + @comment.post_id.to_s
-    @comments = Comment.where(post_id:@comment.post_id)
+    @comments = Post.find(@comment.post_id).comments
     render 'posts/show'
 
     # Create user if they don't already exist

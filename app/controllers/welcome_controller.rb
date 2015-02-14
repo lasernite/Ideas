@@ -48,9 +48,7 @@ class WelcomeController < ApplicationController
       @searched_posts = []
       search_strings.each do |tag| 
        Ptag.where(tag:tag.downcase).each do |ptag| 
-         Post.where(id:ptag.post_id).each do |post|
-            @searched_posts.append(post) 
-         end 
+         @searched_posts.append(Post.find(ptag.post_id))
        end 
       end 
       @posts_spliced_searched = []

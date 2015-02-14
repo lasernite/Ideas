@@ -6,7 +6,7 @@ class AtagsController < ApplicationController
   def show
   	@atag = Atag.find_by_tag(params[:id])
   	# Get all unique posts with tag, store as @aposts
-  	@aptags = Ptag.where(atag_id: @atag.id)
+  	@aptags = @atag.ptags
   	@aposts = []
   	@aptags.each do |aptag|
   		@aposts.append(Post.find(aptag.post_id))

@@ -44,10 +44,10 @@ class PostsController < ApplicationController
   	@post = Post.find(params[:id])
 
     # Splice comments with URLs
-    @comments = Comment.where(post_id:@post.id)
+    @comments = @post.comments
     if @comments[0] == nil
       # Borrow someone elses comment
-      @comments = Comment.offset(rand(Comment.count))[0..0]
+      @comments = [Comment.find(rand(1..Comment.count))]
     end
 
     # Splice posts with hashtags and URLs
