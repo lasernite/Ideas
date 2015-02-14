@@ -15,6 +15,9 @@ class CommentsController < ApplicationController
   	# Create new comment based on comments/_new.html.erb form
   	@comment = Comment.new(comment_params)
     @comment.save
+    # @posts_path = '/posts/' + @comment.post_id.to_s
+    @comments = Comment.where(post_id:@comment.post_id)
+    render 'posts/show'
 
     # Create user if they don't already exist
     @ip = @comment.ip
@@ -31,10 +34,6 @@ class CommentsController < ApplicationController
     end
     # Add commenter to notification
     @notification.update_attributes(uip: @notification.uip + [@ip])
-
-    # @posts_path = '/posts/' + @comment.post_id.to_s
-    @comments = Comment.where(post_id:@comment.post_id)
-  	render 'posts/show'
   end
 
   def show
