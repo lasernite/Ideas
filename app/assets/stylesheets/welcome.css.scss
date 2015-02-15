@@ -189,6 +189,10 @@ hr {
   font-family: 'Bree Serif', serif;
 }
 
+.notify_active_mobile {
+  background-color: #E9573F;
+}
+
 .notify_active:hover {
   background-color: #1D8C5C;
 }
@@ -634,7 +638,8 @@ small.text-muted {
 
   // Top Nav
   .search_box_form {
-    padding-right: 37px;
+    padding-right: 30px;
+    padding-left: 1px;
   }
 }
 
@@ -672,12 +677,17 @@ small.text-muted {
   }
 
   #sidebar {
-    padding-left: 3px;
+    padding-left: 0px;
     a {
       padding-left: 3px;
     }
   }
   #sidebar-footer a {
     padding-left: 3px;
+  }
+
+  // Dropdown move notifications down
+  .drop_notify {
+    margin-top: 40px;
   }
 }

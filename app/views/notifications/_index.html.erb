@@ -4,7 +4,7 @@
   <% if @user.ncount > 0 %>
 
       <%# Render Notifications via Ajax %>
-      <ul class="nav navbar-nav navbar-right notify notify_active"> 
+      <ul class="nav navbar-nav navbar-right notify notify_active drop_notify"> 
         <li class="dropdown">
           <%= link_to @user.ncount, @user, remote: true, :class => "dropdown-toggle", data: {:toggle=>"dropdown"} %>
 
@@ -21,7 +21,7 @@
   <% else %>
 
       <%# Render Notifications via Ajax %>
-      <ul class="nav navbar-nav navbar-right notify">
+      <ul class="nav navbar-nav navbar-right notify drop_notify">
         <li class="dropdown">
 
           <%= link_to @user, remote: true, :class => "dropdown-toggle", data: {:toggle=>"dropdown"} do %><i class="fa fa-exclamation fa-lg"></i><% end %>

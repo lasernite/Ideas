@@ -3,12 +3,21 @@
 
           <!-- Mobile Top Nav -->
           <div class="navbar-header col-sm-4">
-            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
+          <%# If Notifications Activate Menu Bars %>
+          <% @user = User.find_by(ip:request.remote_ip.split('.').join()) %>
+            <% unless @user == nil %>
+              <% if @user.ncount > 0 %>
+                <button class="navbar-toggle notify_active_mobile" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+              <% else %>
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+              <% end %>
+            <% end %>
+
+                  <span class="sr-only">Toggle</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
 
             <%= link_to image_tag('think_space_logo.png', :class => "tslogo"), '/' %>
             <%= link_to 'Think Space', '/', :class => "think_space" %>
@@ -25,16 +34,16 @@
               </div>
           </form>
 
-        <nav class="collapse navbar-collapse" role="navigation">
+          <nav class="collapse navbar-collapse" role="navigation">
 
-          <%# Render Notifications Component %>
-          <%= render 'notifications/index' %>
+            <%# Render Notifications Component %>
+            <%= render 'notifications/index' %>
 
-          <ul class="nav navbar-nav home_button navbar-right">
-            <li>
-              <a href="/"><i class="fa fa-home fa-lg"></i> Home</a>
-            </li>
-          </ul>
+            <ul class="nav navbar-nav home_button navbar-right">
+              <li>
+                <a href="/"><i class="fa fa-home fa-lg"></i> Home</a>
+              </li>
+            </ul>
           </nav>
         </div>
       </div>
