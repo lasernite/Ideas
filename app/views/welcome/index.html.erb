@@ -26,22 +26,22 @@
             	  </div>
                
                 <ul class="nav hidden-xs" id="lg-menu">
-                  
+
                     <!-- New Post Form Partial  -->
                     <%= render "posts/new" %>
                       
                     <!-- Trending Tags -->
                     <h3 class="trending"> Trending Now </h3>
-                    <center>
+                    <div class="trending_div">
                     <% @recent_tags.each do |tag| %>
                         <%= link_to '#' + tag[0], atag_path(Atag.find_by(tag:tag[0])), 
                             :class => 'trending_tags', :remote => true, 
                             :onclick => "location.href='#top'" %>
                     <% end %>
-                    </center>
+                    </div>
 
                     <!-- Who We Are -->
-                    <h5 class="community_statement"> A community for creators, thinkers, visionaries, innovators, technologists, artists, engineers, designers, scientists, humanitarians, explorers, tinkerers, entrepreneurs, musicians, writers, leaders, developers, sponsors, discoverers, organizers, lovers of life, and all those who aspire to be.</h4>
+                    <h5 class="community_statement"> A community for creators, thinkers, visionaries, innovators, technologists, artists, engineers, designers, scientists, humanitarians, explorers, tinkerers, entrepreneurs, musicians, writers, leaders, developers, sponsors, discoverers, organizers, lovers of life, and all those who aspire to be.</h5>
                 </ul>
                 <ul class="list-unstyled hidden-xs" id="sidebar-footer">
                     <li>
