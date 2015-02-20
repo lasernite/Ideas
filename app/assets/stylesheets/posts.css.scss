@@ -28,9 +28,10 @@
 
 // Post Box and Nav Formatting
 
-.post_box {
-	// color: #555555;
-	text-shadow: 0 1px 2px #000000;
+.post_box_color {
+	background-color: #ffffff;
+  margin-left: 5%;
+	// text-shadow: 0 1px 2px #000000;
 }
 
 .panel_body_text {
@@ -38,13 +39,22 @@
 }
 
 .post_button {
-	width: 76%;
-	margin-left: 15%;
+	width: 95%;
+	margin-left: 5%;
 	padding-top: 5px;
 	padding-bottom: 5px;
-	margin-top: 5px; 
 	font-family: 'Bree Serif', serif;
 	font-size: 18px;
+	border-radius: 0px;
+  background-color: #2196C6;
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.post_button:hover {
+  background-color: #1D8C5A;
+  color: #ffffff;
+  border-color: transparent;
 }
 
 /*
@@ -118,28 +128,24 @@
 // Placeholder Text Formatting cross-browser
 
 .post_box::-webkit-input-placeholder {
-   color: white;
    font-size: 24px;
    line-height: 28px;
    text-align: center;
 }
 
 .post_box:-moz-placeholder { /* Firefox 18- */
-   color: white;
    font-size: 24px;
    line-height: 28px;
    text-align: center;  
 }
 
 .post_box::-moz-placeholder {  /* Firefox 19+ */
-   color: white;
    font-size: 24px;
    line-height: 28px;
    text-align: center;  
 }
 
 .post_box:-ms-input-placeholder {  
-   color: white;
    font-size: 24px;
    line-height: 28px;
    text-align: center;  

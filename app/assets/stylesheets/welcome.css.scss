@@ -424,11 +424,14 @@ hr {
   font-family: 'Bree Serif', serif;
   font-size: 18px;
   float: right;
-  background-color: #54BEEA;
+  background-color: #2196C6;
+  color: #ffffff;
+  border-color: transparent;
 }
 
 .comment_button:hover {
-  background-color: rgb(33, 150, 198);
+  background-color: #1D8C5A;
+  color: #ffffff;
 }
 
 .comment_button_padding {
@@ -537,7 +540,6 @@ h1, h2, h3 {
 }
 
 .btn-default {
-  color: #000000;
 }
 
 .form-control! {}
