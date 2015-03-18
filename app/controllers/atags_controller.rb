@@ -27,5 +27,21 @@ class AtagsController < ApplicationController
     # Paginate posts first so only posts being loaded are spliced
     @aposts = @aposts.reverse.paginate(:page => params[:page], :per_page => 30)
     splice_posts_full(@aposts, @aposts_spliced_full)
+
+    # Generate Related Tags
+    @associated_ptags = []
+    Ptag.where(tag:@atag.tag).each do |ptag|
+      @associated_ptags.append(Ptag.where(post_id:ptag.post_id))
+    end
+    # Create Hash to Count Tag Relations
+    @related_tags = Hash.new(0)
+    @associated_ptags.each do |ptag_array|
+      ptag_array.each do |ptag|
+        @related_tags[ptag.tag] += 1
+      end
+    end
+    # Order from most to least associated and take top twenty excluding current tag community
+    @related_tags = @related_tags.sort_by {|tag,count| -count}
+    @related_tags = @related_tags[1..20]
   end
 end

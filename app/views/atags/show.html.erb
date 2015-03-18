@@ -18,6 +18,15 @@
             </div>
           </ul>
 
+          <!-- Related Tags -->
+          <h3 class="trending"> Related Tags </h3>
+          <div class="trending_div">
+          <% @related_tags.each do |tag| %>
+              <%= link_to '#' + tag[0], atag_path(Atag.find_by(tag:tag[0])), 
+                  :class => 'trending_tags' %>
+          <% end %>
+          </div>
+
         </div>
         <!-- Left Sidebar End -->
 
