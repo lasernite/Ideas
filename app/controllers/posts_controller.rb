@@ -6,6 +6,13 @@ class PostsController < ApplicationController
   def create
     # Create new post based on posts/_new.html.erb form
   	@post = Post.new(post_params)
+
+    # If in t community add tag to post text
+    @t = params[:tcommunity].match(/\/t\/(.*)/)
+    unless @t == nil
+      @post.text += " #" + @t[1]
+    end
+    
     if @post.save
       post_spliced = @post.text.split
       post_tags = []

@@ -4,7 +4,8 @@
 <!-- <h1 id='share_idea'>Share Idea</h1> -->
 
 <%= form_for :post, url: posts_path do |f| %>
-
+	
+	<%= hidden_field_tag :tcommunity, request.fullpath %>
 	<%= f.hidden_field :ip, :value => request.remote_ip.split('.').join().to_i %>
 	<div class="post_box_color">
     <%= f.text_area :text, :class => "post_box", :placeholder => "Share your thoughts here, and #tag away!" %>
