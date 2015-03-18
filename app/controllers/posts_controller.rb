@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     unless @t == nil
       @post.text += " #" + @t[1]
     end
-    
+
     if @post.save
       post_spliced = @post.text.split
       post_tags = []
@@ -44,7 +44,13 @@ class PostsController < ApplicationController
       end
     else
     end
-  	redirect_to '/'
+
+    # Redirect to homepage or community page
+    if params[:tcommunity] == nil 
+  	 redirect_to '/'
+    else
+     redirect_to params[:tcommunity]
+    end
   end
 
   def show
