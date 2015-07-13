@@ -7,6 +7,12 @@ class PostsController < ApplicationController
     # Create new post based on posts/_new.html.erb form
   	@post = Post.new(post_params)
 
+    # Anti-bot-spam measure
+    unless @post.name == ""
+      redirect_to '/'
+      return
+    end
+
     # If in t community add tag to post text
     @t = params[:tcommunity].match(/\/t\/(.*)/)
     unless @t == nil
@@ -74,7 +80,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-  	  params.require(:post).permit(:text, :ip)
+  	  params.require(:post).permit(:text, :ip, :name)
     end
 
     def atag_params

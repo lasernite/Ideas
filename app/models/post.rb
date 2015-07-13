@@ -13,7 +13,7 @@ class Post < ActiveRecord::Base
   	validate :reasonable_post_count
 
   	def reasonable_post_count
-		if 5 < Post.where("created_at >= ? AND ip = ?", Time.now - 500, self.ip).size
+		if 10 < Post.where("created_at >= ? AND ip = ?", Time.now - 300, self.ip).size
 			errors.add(:ip, 'Sorry mate, gotta let someone else post for now.')
 		end
 	end
