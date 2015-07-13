@@ -1,4 +1,4 @@
-##@class PostsController < ApplicationController
+class PostsController < ApplicationController
   respond_to :html, :js
   def new
   end
