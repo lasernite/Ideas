@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+##@class PostsController < ApplicationController
   respond_to :html, :js
   def new
   end
@@ -45,7 +45,7 @@ class PostsController < ApplicationController
     else
     end
 
-    # Redirect to homepage or community page
+    # Redirect to homepage or community page, depending on where user is posting from
     if params[:tcommunity] == nil 
   	 redirect_to '/'
     else
